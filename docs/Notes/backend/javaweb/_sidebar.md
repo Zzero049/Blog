@@ -1,2 +1,0 @@
-- Java WEB
-  - [Jsp](backend/javaweb/jsp.md)

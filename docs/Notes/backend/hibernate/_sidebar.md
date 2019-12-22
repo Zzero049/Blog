@@ -1,4 +1,0 @@
-- Hibernate
-  - [配置文件](backend/hibernate/properties.md)
-  - [实体的状态](backend/hibernate/status.md)
-  - [缓存](backend/hibernate/cache.md)
