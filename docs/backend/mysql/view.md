@@ -177,7 +177,7 @@ SHOW CREATE VIEW emp_v1;
 - Select中包含子查询
 - join连接表，可以update不能insert
 - from一个不能更新的视图(如有自定义的键)
-- where子句的子查询引用了from子句中的表
+- 创建视图的where子句的子查询引用了from子句中的表，该视图无法更新
 
 
 

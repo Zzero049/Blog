@@ -48,7 +48,7 @@ end [case];
 DELIMITER //
 CREATE OR REPLACE FUNCTION test_case(score DOUBLE) RETURNS CHAR
 BEGIN
--- DECLARE result CHAR;
+DECLARE result CHAR;
 CASE  
 	WHEN score>90 THEN
 		RETURN 'A';

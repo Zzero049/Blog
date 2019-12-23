@@ -57,17 +57,14 @@ END
 
   ```
   delimiter 结束标记
-  # 例
-  delimiter $
   ```
+  例:delimiter $
 
-**例：**
+**案例：**
 
 插入到admin表中五条记录
 
 ``` mysql
-USE girls;
-
 DELIMITER $
 CREATE PROCEDURE myp1()
 BEGIN
@@ -142,7 +139,7 @@ CALL myp3('john','1234');
 DELIMITER $
 CREATE PROCEDURE myp4(IN beautyName VARCHAR(20),OUT boyName VARCHAR(20))
 BEGIN
-	SELECT bo.boyname INTO boyname
+	SELECT bo.boyname INTO boyname   # 返回值
 	FROM boys bo
 	RIGHT JOIN
 	beauty b ON b.boyfriend_id = bo.id
@@ -151,7 +148,7 @@ END $
 ```
 
 ``` mysql
-# 调用 使用自定义变量接收
+# 调用 使用自定义用户变量接收
 CALL myp4('赵敏',@name);
 SELECT @name;
 ```
@@ -162,7 +159,7 @@ SELECT @name;
 DELIMITER $
 CREATE PROCEDURE myp5(IN beautyName VARCHAR(20),OUT boyName VARCHAR(20),OUT usercp INT) 
 BEGIN
-	SELECT boys.boyname ,boys.usercp INTO boyname,usercp
+	SELECT boys.boyname ,boys.usercp INTO boyname,usercp	# 返回值
 	FROM boys 
 	RIGHT JOIN
 	beauty b ON b.boyfriend_id = boys.id
