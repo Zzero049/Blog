@@ -10,11 +10,11 @@
   - [node](/frontend/node/_sidebar.md)
   - [ECMAScript](frontend/ecmascript/_sidebar.md)
   - [VUE入门](frontend/vue/_sidebar.md)
-- 
+- 项目
+  - [乐优商城](project/leyoumall/_sidebar.md)
 - **其他**
   - [deepin](others/deepin/_sidebar.md)
   - [IDEA](others/idea/_sidebar.md)
   - [markdown](others/markdown/_sidebar.md)
-  
-    
+  - <div style="display:none"> [简历](others/resume.md) </div>
 
