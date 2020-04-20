@@ -297,3 +297,31 @@ public class Main {
 
 ```
 
+## TreeMap
+
+TreeMap是**红黑树**的典型实现。我们打开TreeMap的源码，发现里面有一行核心代码：
+
+```java
+private transient Entry<K,V> root = null;
+
+root用来存储整个树的根节点。我们继续跟踪Entry（是TreeMap的内部类）的代码：
+```
+
+<img src="../../../../../../新建文件夹/Blog/docs/backend/java/pictures/Annotation 2019-11-07 215138.png"  div align=center />
+
+可以看到里面存储了本身数据、左节点、右节点、父节点、以及节点颜色。TreeMap的put）/remove0方法大量使用了红黑树的理论。本书限于篇幅，不再展开。需要了解更深入的，可以参考专门的数据结构书籍。
+TreeMap和HashMap实现了同样的接口Map，因此，用法对于调用者来说没有区别。HashMap效率高于TreeMap；在需要排序的Map时才选用TreeMap。
+
+如果要实现按指定值排序则需要重写compareTo
+
+和Collection接口一样可以通过迭代器Iterator遍历
+
+### Collections工具类
+
+类java.util.Collections 提供了对Set、List.Map进行排序、填充、查找元素的辅助方法。
+
+1. void sort（List）//对List容器内的元素排序，排序的规则是按照升序进行排序。
+2. void shufle（List）//x对List容器内的元素进行随机排列。
+3. void reverse（List）//对List容器内的元素进行逆续排列。
+4. void fill（List，Object）//用一个特定的对象重写整个List容器。
+5. int binarySearch（List，Object）//对于顺序的List容器，采用折半查找的方法查找特定对象。
