@@ -1,5 +1,5 @@
-就怕自己没努力过就输了
+# SYL的笔记
 
-<br/>
+<div id="oneyan"></div>
 
-![微信图片_20200420113027](./pictures/微信图片_20200420113027.jpg)
+ <script>var reloaded=false;$(function () { $.get("https://api.ooopn.com/ciba/api.php", function (r) { if (r.code == 200) { console.log(r); $("#oneyan").html("<small>" + r.date + "</small><p>" + r.ciba + "</p><p>" + r["ciba-en"] + '</p><p><img src="' + r.imgurl + '" height="480" width="330" onerror="javascript:this.src=\'https://api.ixiaowai.cn/gqapi/gqapi.php\';this.onerror = null;this.removeAttribute(\'height\');this.removeAttribute(\'width\')"></img></p><p></p>').css("text-indent", "2em") } }, "json"); });</script>
