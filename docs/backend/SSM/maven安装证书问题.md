@@ -1,0 +1,13 @@
+在idea的maven runner的vm option中加入
+
+-Dmaven.wagon.http.ssl.insecure=true -Dmaven.wagon.http.ssl.allowall=true
+![image-20200420121903150](pictures/image-20200420121903150.png)
+
+create table account(
+id int primary key auto_increment, name varchar(40),money float
+)character set utf8 collate utf8_general_ci;
+
+archetypeCatalog
+internal
+![image-20200420121852442](pictures/image-20200420121852442.png)
+

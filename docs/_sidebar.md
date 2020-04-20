@@ -7,7 +7,10 @@
   - [Spring Boot](backend/springboot/_sidebar.md)
   - [Spring Cloud](backend/springCloud/_sidebar.md)
   
-  
+- **力扣**
+
+  - [力扣题](LeetCode/_sidebar.md)
+
 - **其他**
   
   - [deepin](others/deepin/_sidebar.md)
