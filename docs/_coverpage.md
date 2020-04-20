@@ -1,6 +1,6 @@
 ![logo](images/logo.svg)
 
-# SYL的笔记 <small>2019</small>
+# Zero的笔记 <small>2020</small>
 
-[View](#syl的笔记)
+[View](#Zero的笔记)
 
