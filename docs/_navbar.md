@@ -1,8 +1,4 @@
-* Introduction
-    * [简介](README.md)
-
-* JavaScript
-    * [基础](/javascript/base.md)
-    * [This](/javascript/this.md)
-    * [JaveSE](Java后端)
+- [Home](/)
+- [Blog](https://www.clboy.cn)
+- [Another](https://note.zzrfdsn.cn)
 
