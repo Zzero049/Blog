@@ -20,3 +20,4 @@
   - [存储函数](backend/mysql/function.md)
   - [流程控制结构](backend/mysql/processcontrol.md)
 
+  - [mysqls索引优化](backend/mysql/mysql高级索引优化分析.md)
