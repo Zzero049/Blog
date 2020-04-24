@@ -13,3 +13,6 @@ value：它和basePackages的作用是一样的，都是用于指定创建容器
 我们使用此注解就等同于在xml中配置了`<context:component-scan base-package="com.itheima"></context:component-scan>`
 
 示例
+
+
+
