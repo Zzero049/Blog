@@ -16,5 +16,13 @@
 
 
 
-<script>$.get("http://api.youngam.cn/api/one.php",{},function (data) {var imgSrc = data.data[0].src;var path = '<img src="'+imgSrc+'"style="height:550px;width:900px;"/>';$("#img").html(path);$("#text").html(data.data[0].text);$("#day").html(data.data[0].day)})</script>
+<script>$.get("http://api.youngam.cn/api/one.php",{},function (data) {
+        if(data.code==200){
+            var imgSrc = data.data[0].src;
+            var path = '<img src="'+imgSrc+'"style="height:550px;width:900px;"/>';
+            $("#img").html(path);
+            $("#text").html(data.data[0].text);
+            $("#day").html(data.data[0].day)
+        }
+    });</script>
 
