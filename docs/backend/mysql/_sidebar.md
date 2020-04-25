@@ -19,8 +19,7 @@
   - [存储过程](backend/mysql/procedure.md)
   - [存储函数](backend/mysql/function.md)
   - [流程控制结构](backend/mysql/processcontrol.md)
-- [mysqls索引优化](backend/mysql/mysql高级索引优化分析.md)
 - mysql高级
-  - [mysql架构介绍](ackend/mysql/H02jiagou.md)
-  - [mysql索引优化](ackend/mysql/H03youhua.md)
-  - [mysql索引优化题](ackend/mysql/H04youhuati.md)
+  - [mysql架构介绍](backend/mysql/H02jiagou.md)
+  - [mysql索引优化](backend/mysql/H03youhua.md)
+  - [mysql索引优化题](backend/mysql/H04youhuati.md)
