@@ -14,23 +14,23 @@ Spring是一个IOC（控制反转）和AOP（面向切面编程）容器（可�
 ## spring 的下载
 Spring官网并不直接提供Spring的下载，GitHub上也只提供spring的源码，不提供jar包。
 
- 
+
 [下载地址](https://repo.spring.io/webapp/#/artifacts/browse/tree/General/libs-release-local/org/springframework/spring)
 
-<img src="./pictures/1685101-20200122091908380-524394528.png"  div align=center />
+<img src="https://gitee.com/zero049/MyNoteImages/raw/master/1685101-20200122091908380-524394528.png"  div align=center />
 
 <br></br>
 
-<img src="./pictures/1685101-20200122092328332-1015565000.png"  div align=center />
+<img src="https://gitee.com/zero049/MyNoteImages/raw/master/1685101-20200122092328332-1015565000.png"  div align=center />
 
 docs文件夹里是一些html文件，是Spring的API文档。
 
 libs文件夹里是Spring的jar包，一共63个。
-<img src="./pictures/1685101-20190630040632071-589731235.png"  div align=center />
-<img src="./pictures/1685101-20190630040825905-1082151482.png"  div align=center />
+<img src="https://gitee.com/zero049/MyNoteImages/raw/master/1685101-20190630040632071-589731235.png"  div align=center />
+<img src="https://gitee.com/zero049/MyNoteImages/raw/master/Annotation 2020-03-15 213228.png"  div align=center />
 3个一组，.RELEASE.jar是在项目中使用的，.RELEASE-javadoc.jar是这个jar包的说明文档，.RELEASE-source.jar是这个jar包的源码。真正在项目中用的就21个。
 
- 
+
 +
 其中，有4个是Spring的基础包，对应Spring核心容器的4个模块，是Spring项目必需的：
 
@@ -38,7 +38,7 @@ spring-core-5.1.8.RELEASE.jar    //Spring的核心工具类，其它jar包是建
 spring-beans-5.1.8.RELEASE.jar     //配置、创建、管理Bean，负责Ioc、DI
 spring-context-5.1.8.RELEASE.jar   //提供在基础IoC上的扩展服务
 spring-expression-5.1.8.RELEASE.jar   //提供对Spring表达式语言的支持
-<img src="./pictures/Annotation 2020-01-27 133025.png"  div align=center />
+<img src="https://gitee.com/zero049/MyNoteImages/raw/master/1685101-20190630040825905-1082151482.png"  div align=center />
 
 * Test : spring的单元测试模块
 * Core container： 核心容器（IoC）黑色方框代表这部分的功能由哪些jar包组成；要使用这个部分的完整功能，这些jar都需要导入
@@ -126,7 +126,7 @@ public class JdbcDemo1 {
 ```
 
 IOC示意：将管理类的控制权交给工厂
-<img src="./pictures/Annotation 2020-03-15 213228.png"  div align=center />
+<img src="https://gitee.com/zero049/MyNoteImages/raw/master/Annotation 2020-01-27 133025.png"  div align=center />
 
 #### spring的控制反转
 在resources下创建xml文件
@@ -199,7 +199,7 @@ bean标签的**scope**属性：
 * global-session 作用于集群环境的会话范围（全局会话范围），当不是集群环境时，它就是session
 
 global-session解释：
-<img src="./pictures/Annotation 2020-03-22 215659.png"  div align=center />
+<img src="https://gitee.com/zero049/MyNoteImages/raw/master/Annotation 2020-03-22 215659.png"  div align=center />
 
 ### bean对象的生命周期
 1. 单例对象

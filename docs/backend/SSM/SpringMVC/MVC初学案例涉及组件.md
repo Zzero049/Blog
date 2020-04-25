@@ -1,5 +1,5 @@
 
-<img src="pictures/Annotation 2020-04-12 125913.png">
+<img src="https://gitee.com/zero049/MyNoteImages/raw/master/Annotation 2020-04-12 125913.png">
 
 ## DispatcherServlet：前端控制器
 用户请求到达前端控制器，它就相当于mvc模式中的c，dispatcherservlet是整个流程控制的中心，由它调用其它组件处理用户的请求，dispatcherServlet的存在降低了组件之间的耦合性。

@@ -75,5 +75,5 @@ jsp文件
 ```
 返回封装到Account里
 
-<img src="pictures/Annotation 2020-04-12 143352.png">
+<img src="https://gitee.com/zero049/MyNoteImages/raw/master/Annotation 2020-04-12 143352.png">
 

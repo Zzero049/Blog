@@ -1,6 +1,6 @@
 ## URL
 统一资源定位符，由4部分组成：协议、存放资源的主机域名、端口号和资源文件名
-<img src="./pictures/Annotation 2019-12-03 160612.png"  div align=center />
+![image-20200426020634861](https://gitee.com/zero049/MyNoteImages/raw/master/image-20200426020634861.png)
 ####URL的java api
 URL u=new URL("http://www.baidu.con:80/index.html#aa？cansu=shsxt");
 System.out.println("获取与此url关联的协议的默认端口："+u.getDefaultPort());

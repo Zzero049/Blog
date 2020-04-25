@@ -29,6 +29,5 @@ log4j.logger.org.apache=INFO
     </settings>
 ```
 配置好之后，运行效果如下：
-<img src="./pictures/Annotation 2020-03-31 115940.png
-"  div align=center />
+![image-20200426025313629](https://gitee.com/zero049/MyNoteImages/raw/master/image-20200426025313629.png)
 

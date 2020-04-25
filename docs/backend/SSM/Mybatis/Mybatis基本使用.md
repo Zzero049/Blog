@@ -44,7 +44,7 @@ mybatis主配置文件中的常用配置
 
 #### properties标签
 可以将property标签整合再用${name}作为引用值
-<img src="./pictures/Annotation 2020-03-30 235056.png"  div align=center />
+<img src="https://gitee.com/zero049/MyNoteImages/raw/master/Annotation 2020-03-30 235056.png"  div align=center />
 
 可以在标签内部配置连接数据库的信息。也可以通过属性引用外部配置文件信息
 
@@ -167,8 +167,7 @@ public class queryVo {
     </if>
 </select>
 ```
-<img src="./pictures/Annotation 2020-03-31 124142.png
-"  div align=center />
+![image-20200426022936675](https://gitee.com/zero049/MyNoteImages/raw/master/image-20200426022936675.png)
 
 
 2. 使用where标签

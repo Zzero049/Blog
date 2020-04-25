@@ -14,7 +14,7 @@
 
 1.编写拦截器类，实现HandlerInterceptor接口
 有以下方法，都有默认实现
-<img src="pictures/Annotation 2020-04-14 145756.png">
+<img src="https://gitee.com/zero049/MyNoteImages/raw/master/Annotation 2020-04-14 145756.png">
 
 ```java
 public class MyInterceptor1 implements HandlerInterceptor {
@@ -52,4 +52,4 @@ public class MyInterceptor1 implements HandlerInterceptor {
         </mvc:interceptor>
     </mvc:interceptors>
 ```
-<img src="pictures/Annotation 2020-04-14 151012.png">
+<img src="https://gitee.com/zero049/MyNoteImages/raw/master/Annotation 2020-04-14 151012.png">

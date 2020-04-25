@@ -73,7 +73,7 @@ Mybatis中的一级缓存和二级缓存
     * 一级缓存是Sqlsession 范围的缓存，当调用Sqlsession的修改，添加，删除，commit()，close()等方法时，就会清空一级缓存。
     <br></br>
 * 二级缓存：它指的是Mybatis中SqlSessionFactory对象的缓存。由同一个SqlSessionFactory对象创建的SqlSession共享其缓存。
-<img src="./pictures/Annotation 2020-04-01 155247.png"  div align=center />
+<img src="https://gitee.com/zero049/MyNoteImages/raw/master/Annotation 2020-04-01 155247.png"  div align=center />
     * 二级缓存的使用步骤：
 第一步：让Mybatis框架支持二级缓存（在SqlMapConfig.xml中配置）
         ```xml

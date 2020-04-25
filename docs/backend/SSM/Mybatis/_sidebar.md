@@ -1,16 +1,11 @@
-- java
+- ==[返回上一级](backend/SSM/_sidebar.md)==
+- Mybatis
 
-  - 集合
-    - [数组复习](backend/java/collection/array.md)
-    - [linkedList](backend/java/collection/linkedList.md)
-    - [map](backend/java/collection/map.md)
-- [Collection容器](backend/java/collection/Collection容器.md)
-    
-  - 多线程
-    - [线程的基本概念](backend/java/thread/001.md)
-    - [实现线程的几种方式](backend/java/thread/002.md)
-    - [线程的生命周期](backend/java/thread/003.md)
-    - [线程安全](backend/java/thread/004.md)
-    - [等待唤醒机制](backend/java/thread/005.md)
-    - [happenBefore,volitale,dcl](backend/java/thread/006.md)
+  - [Mybatis入门](backend/SSM/Mybatis/Mybatis入门.md)
+  - [结合log4j](backend/SSM/Mybatis/Mybatis+log4j.md)
+  - [Mybatis基本使用](backend/SSM/Mybatis/Mybatis基本使用.md)
+  - [Mybatis的注解开发](backend/SSM/Mybatis/Mybatis的注解开发.md)
+  - [Mybatis多表查询](backend/SSM/Mybatis/Mybatis多表查询.md)
+  - [Mybatis的加载缓存](backend/SSM/Mybatis/Mybatis的加载缓存.md)
+  - [Mybatis连接池](backend/SSM/Mybatis/Mybatis连接池.md)
 

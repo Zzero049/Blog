@@ -1,7 +1,3 @@
-
-<img src="./pictures/Annotation 2020-03-29 132213.png
-"  div align=center />
-
 ### 框架
  它是我们软件开发中的一套解决方案，不同的框架解决的是不同的问题。
 
@@ -16,7 +12,7 @@
 持久层：
 &emsp;&emsp;是和数据库交互的
 
-<img src="./pictures/Annotation 2020-03-29 132700.png"  div align=center />
+<img src="https://gitee.com/zero049/MyNoteImages/raw/master/Annotation 2020-03-29 132700.png"  div align=center />
 
 ### 持久层技术解决方案
 
@@ -124,7 +120,7 @@ mybatis的环境搭建:
 第三步：创建Mybatis的主配置文件
 第四步：创建映射配置文件(mybatis的映射配置文件位置必须和dao接口的包结构相同)
 
-<img src="./pictures/Annotation 2020-03-29 180154.png"  div align=center />
+<img src="https://gitee.com/zero049/MyNoteImages/raw/master/Annotation 2020-03-29 180154.png"  div align=center />
 
 ### 入门实例（基于xml）
 mybatis的入门案例（该实例的实体类变量名与数据库变量名保持一致）
@@ -263,7 +259,7 @@ public interface IUserDao {
 不管使用XML还是注解配置。
 但是Mybatis它是支持写dao实现类的。
 
-<img src="./pictures/Annotation 2020-03-29 201451.png"  div align=center />
+<img src="https://gitee.com/zero049/MyNoteImages/raw/master/Annotation 2020-03-29 201451.png"  div align=center />
 
-<img src="./pictures/Annotation 2020-03-29 214935.png"  div align=center />
+<img src="https://gitee.com/zero049/MyNoteImages/raw/master/Annotation 2020-03-29 214935.png"  div align=center />
 

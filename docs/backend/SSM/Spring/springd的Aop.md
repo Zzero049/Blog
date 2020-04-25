@@ -17,7 +17,7 @@ AoP：全称是Aspect oriented programming即：面向切面编程。简单的�
 * Advice（通知/增强）：
     * 所谓通知是指拦截到Joinpoint之后所要做的事情就是通知。
     * 通知的类型：前置通知，后置通知，异常通知，最终通知，环绕通知（整个invoke方法执行）。
-    <img src="./pictures/Annotation 2020-03-27 023801.png"  div align=center />
+    ![image-20200426025419851](https://gitee.com/zero049/MyNoteImages/raw/master/image-20200426025419851.png)
 
 * Introduction（引介）：
     * 引介是一种特殊的通知在不修改类代码的前提下，Introduction 可以在运行期为类动态地添加一些方法或Field。
@@ -140,9 +140,10 @@ AoP：全称是Aspect oriented programming即：面向切面编程。简单的�
         可以使用通配符表示任意类型，但是必须有参数
         可以使用..表示有无参数均可，有参数可以是任意类型
     * 全通配写法
+        
         * `* *..*.*(..)`
 
-<img src="./pictures/Annotation 2020-03-27 153932.png"  div align=center />
+<img src="https://gitee.com/zero049/MyNoteImages/raw/master/Annotation 2020-03-27 153932.png"  div align=center />
 
 #### 关于环绕通知
 问题：
@@ -251,7 +252,17 @@ public class Logger {
 
 注意，基于注解的AoP在调用顺序是有问题的，因此对于增强顺序敏感的业务需要改造成环绕方法
 
-<img src="./pictures/Annotation 2020-03-27 180216.png"  div align=center />
+<img src="https://gitee.com/zero049/MyNoteImages/raw/master/Annotation 2020-03-27 180216.png"  div align=center />
 
-<img src="./pictures/Annotation 2020-03-27 180445.png
-"  div align=center />
+
+
+### 不使用XML的配置方式
+
+```java
+@configuration 
+@ComponentScan(basePackages="com.itheima")
+@EnableAspectJAutoProxy 
+public class springconfiguration {
+}
+```
+

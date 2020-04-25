@@ -12,7 +12,7 @@
 
 我们今天的主角在spring-jdbc-5.0.2.RELEASE.jar中，我们在导包的时候，除了要导入这个jar包外，还需要导入一个spring-tx-5.0.2.BELEASE.jar（它是和事务相关的）。
 
-<img src="./pictures/Annotation 2020-03-28 135415.png"  div align=center />
+<img src="https://gitee.com/zero049/MyNoteImages/raw/master/Annotation 2020-03-28 135415.png"  div align=center />
 
 
 ### JdbcTemplate的作用
@@ -48,7 +48,7 @@ public class jdbcTemplateDemo2 {
         //查询所有
 //        List<Account> accounts = jt.query("select * from account where money>?",new AccountRowMapper(),0f);
         //spring提供了mapper类不用自己写
-        List<Account> accounts = jt.query("select * from account where money>?",new BeanPropertyRowMapper<Account>(Account.class),0f);
+        List<Account> accounts = jt.query("select * from account where money>?",new BeanPropertyRowMapper<Account>(Account.class),10f);
         for(Account account:accounts){
             System.out.println(account);
         }

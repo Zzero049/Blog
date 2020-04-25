@@ -193,4 +193,4 @@ select语句里注意是resultMap
 ```
 
 多对多关系也是同理，让实现类各自持有对方的一个集合引用（通过中间表两次左外连接）
-<img src="./pictures/Annotation 2020-03-31 162748.png"  div align=center />
+![image-20200426022919846](https://gitee.com/zero049/MyNoteImages/raw/master/image-20200426022919846.png)

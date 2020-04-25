@@ -7,8 +7,7 @@
 容器其实就是一个集合对象，该集合必须：是线程安全的，不能两个线程拿到同一连接
 
 该集合还必须实现队间的特性：先进先出
-<img src="./pictures/Annotation 2020-03-31 113122.png
-"  div align=center />
+![image-20200426022654063](https://gitee.com/zero049/MyNoteImages/raw/master/image-20200426022654063.png)
 
 ## Mybatis的连接池
 mybatis连接池提供了3种方式的配置：
@@ -23,20 +22,18 @@ mybatis连接池提供了3种方式的配置：
 注意：如果不是web或者maven的war工程，是不能使用的。
 使用的tomcat服务器，采用连接池就是dbcp连接池。
 
-<img src="./pictures/Annotation 2020-03-31 120610.png
-"  div align=center />
+![image-20200426022723101](https://gitee.com/zero049/MyNoteImages/raw/master/image-20200426022723101.png)
 相应地，MyBatis内部分别定义了实现了java.sql.DataSource接口的UnpooledDataSource，PooledDatasource 类来表示UNPOOLED、POOLED类型的数据源。
 
 连接池图解：
-<img src="./pictures/Annotation 2020-03-31 121737.png
-"  div align=center />
+![image-20200426022743619](https://gitee.com/zero049/MyNoteImages/raw/master/image-20200426022743619.png)
+
 空闲池是否还有=》活动池是否还能加=》活动池取出一个最老的用
 
 ### JNDI
-JNDI:Java Naming and Directory Interface。是SUN公司推出的一套规范，属于JavaEE技术之一。目的是模仿 windowe.系统中的注册表。
-<img src="./pictures/Annotation 2020-03-31 163533.png
-"  div align=center />
+JNDI:Java Naming and Directory Interface。是SUN公司推出的一套规范，属于JavaEE技术之一。目的是模仿 windows.系统中的注册表。
+![image-20200426025214564](https://gitee.com/zero049/MyNoteImages/raw/master/image-20200426025214564.png)
 
-在tomcat服务器中注册教据源(以后再了解)
-<img src="./pictures/Annotation 2020-03-31 163957.png
-"  div align=center />
+在tomcat服务器中注册教据源
+
+![image-20200426022817341](https://gitee.com/zero049/MyNoteImages/raw/master/image-20200426022817341.png)

@@ -20,7 +20,7 @@ MVC全名是ModelView Controller，是模型（model）——视图（view）—
 &emsp;&emsp;SpringMVC已经成为目前最主流的MVC框架之一，并且随着Spring3.0的发布，全面超越Struts2，成为最优秀的MVC框架。
 &emsp;&emsp;它通过一套注解，让一个简单的Java类成为处理请求的控制器，而无须实现任何接口。同时它还支持RESTfu1编程风格的请求。
 
-<img src="./pictures/Annotation 2020-04-11 143431.png"  div align=center />
+<img src="https://gitee.com/zero049/MyNoteImages/raw/master/Annotation 2020-04-11 143431.png"  div align=center />
 
 
 ### SpringMVC 与 Struts2优劣对比
@@ -36,7 +36,7 @@ MVC全名是ModelView Controller，是模型（model）——视图（view）—
 
 
 ### 需要的依赖
-    
+
 ```xml
 <properties>
     <spring.version>5.2.3.RELEASE</spring.version>

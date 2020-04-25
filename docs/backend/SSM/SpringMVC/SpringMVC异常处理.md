@@ -1,8 +1,8 @@
 默认的抛异常
-<img src="pictures/Annotation 2020-04-14 135836.png">
+<img src="https://gitee.com/zero049/MyNoteImages/raw/master/Annotation 2020-04-14 135836.png">
 
 友好的异常处理
-<img src="pictures/Annotation 2020-04-14 140014.png">
+<img src="https://gitee.com/zero049/MyNoteImages/raw/master/Annotation 2020-04-14 140014.png">
 
 1.编写自定文异常类（做提示信息的）--------继承Exceptions
 ```java

@@ -1,6 +1,6 @@
 ## 案例代码
 目录路径
-<img src="pictures/Annotation 2020-04-12 120209.png">
+<img src="https://gitee.com/zero049/MyNoteImages/raw/master/Annotation 2020-04-12 120209.png">
 
 springmvc.xml
 ```xml
@@ -125,10 +125,10 @@ web.xml
 </html>
 
 ```
-<img src="pictures/Annotation 2020-04-12 120622.png">
-<img src="pictures/Annotation 2020-04-12 120651.png">
+<img src="https://gitee.com/zero049/MyNoteImages/raw/master/Annotation 2020-04-12 120622.png">
+<img src="https://gitee.com/zero049/MyNoteImages/raw/master/Annotation 2020-04-12 120651.png">
 程序打印
-<img src="pictures/Annotation 2020-04-12 120713.png">
+<img src="https://gitee.com/zero049/MyNoteImages/raw/master/Annotation 2020-04-12 120713.png">
 
 ## 流程
 1. 启动服务器，加载一些配置文件
@@ -136,5 +136,5 @@ web.xml
     * springmvc-xml被加载了
     * Hellocontrol1er创建成对象
 2. 发送请求，后台处理请求
-<img src="pictures/Annotation 2020-04-12 122544.png">
+<img src="https://gitee.com/zero049/MyNoteImages/raw/master/Annotation 2020-04-12 122544.png">
 
