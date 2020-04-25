@@ -1,17 +1,16 @@
 - java
 
+  - [入门](backend/java/java_first.md)
+  - [关键字](backend/java/关键字、保留字.md)
+  - [变量常量](backend/java/变量、常量.md)
+  - [继承封装多态](backend/java/继承、封装、多态.md)
   - 容器
     - [数组复习](backend/java/collection/array.md)
     - [linkedList](backend/java/collection/linkedList.md)
     - [map](backend/java/collection/map.md)
     - [Collection容器](backend/java/collection/Collection容器.md)
-  
-  - 多线程
-    - [线程的基本概念](backend/java/thread/001.md)
-    - [实现线程的几种方式](backend/java/thread/002.md)
-    - [线程的生命周期](backend/java/thread/003.md)
-    - [线程安全](backend/java/thread/004.md)
-    - [等待唤醒机制](backend/java/thread/005.md)
-    - [happenBefore,volitale,dcl](backend/java/thread/006.md)
-  
-  - [注解](backend/java)
+  - [多线程](backend/java/多线程.md)
+
+  - [注解](backend/java/注解.md)
+
+    
