@@ -31,7 +31,7 @@
 
 和其它数据库相比，MySQL有点与众不同，它的架构可以在多种不同场景中应用并发挥良好作用。主要体现在存储引擎的架构上，插件式的存储引擎架构将性询处理和其它的系统任务以及数据的存储提取相分离。这种架构可以根据业务的需求和实际需要选择合适的存储引擎。
 
-<img src="./pictures/Annotation 2019-12-23 154737.png"  div align=center />
+<img src="https://gitee.com/zero049/MyNoteImages/raw/master/Annotation 2019-12-23 154737.png"  div align=center />
 
 
 <br>1.连接层

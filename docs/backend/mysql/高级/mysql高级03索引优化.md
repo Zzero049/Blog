@@ -46,12 +46,12 @@ SELECT DISTINCT <select list>
 ORDER BY <order by_condition>
 LIMIT<limit number>
 ```
-<img src="./pictures/Annotation 2019-12-23 163813.png"  div align=center />
+<img src="https://gitee.com/zero049/MyNoteImages/raw/master/Annotation 2019-12-23 163813.png"  div align=center />
 
 ## 7种Join连接
 
 ### 内连接
-<img src="./pictures/Annotation 2019-12-23 170425.png"  div align=center />
+<img src="https://gitee.com/zero049/MyNoteImages/raw/master/Annotation 2019-12-23 170425.png"  div align=center />
 
 ```sql
 SELECT <select_list>
@@ -61,7 +61,7 @@ ON A.key = B.key;
 ```
 
 ### 左外连接
-<img src="./pictures/Annotation 2019-12-23 170300.png"  div align=center />
+<img src="https://gitee.com/zero049/MyNoteImages/raw/master/Annotation 2019-12-23 170300.png"  div align=center />
 
 
 <br>例子：查找女神表对应的男朋友表中的男朋友信息,没有男朋友时信息为NULL
@@ -73,7 +73,7 @@ LEFT JOIN TableB B
 ON A.key = B.key;
 ```
 
-<img src="./pictures/Annotation 2019-12-23 170718.png"  div align=center />
+<img src="https://gitee.com/zero049/MyNoteImages/raw/master/Annotation 2019-12-23 170718.png"  div align=center />
 
 <br>例子：查找女神表中的有男朋友的对应信息,没有男朋友的女神不显示
 
@@ -81,7 +81,7 @@ ON A.key = B.key;
 ### 右外连接
 右外连接和左外连接是对称的
 
-<img src="./pictures/Annotation 2019-12-23 171202.png"  div align=center />
+<img src="https://gitee.com/zero049/MyNoteImages/raw/master/Annotation 2019-12-23 171202.png"  div align=center />
 
 
 ```sql
@@ -91,7 +91,7 @@ RIGHT JOIN TableB B
 ON A.key = B.key;
 ```
 
-<img src="./pictures/Annotation 2019-12-23 171237.png"  div align=center />
+<img src="https://gitee.com/zero049/MyNoteImages/raw/master/Annotation 2019-12-23 171237.png"  div align=center />
 
 
 ```sql
@@ -104,7 +104,7 @@ WHERE A.key IS NULL；
 
 ### 全外连接
 **mysql 不支持全外连接**
-<img src="./pictures/Annotation 2019-12-23 171313.png"  div align=center />
+<img src="https://gitee.com/zero049/MyNoteImages/raw/master/Annotation 2019-12-23 171313.png"  div align=center />
 
 ```sql
 SELECT <select_list>
@@ -114,7 +114,7 @@ ON A.key = B.key
 
 ```
 
-<img src="./pictures/Annotation 2019-12-23 202538.png"  div align=center />
+<img src="https://gitee.com/zero049/MyNoteImages/raw/master/Annotation 2019-12-23 202538.png"  div align=center />
 ```sql
 SELECT <select_list>
 FROM TableA A
@@ -298,7 +298,7 @@ ALTER TABLE tbl_name ADD FULLTEXT index name(column list);
     select * from tbl_emp a left join tbl_dept b on a.deptId =b.id 
     union 
     select * from tbl_emp a right join tbl_dept b on a.deptId =b.id;
-      ```
+    ```
 
     <img src="./pictures/Annotation 2019-12-24 155244.png "  div align=center />
     <img src="./pictures/Annotation 2019-12-24 155129.png"  div align=center />
@@ -310,7 +310,7 @@ ALTER TABLE tbl_name ADD FULLTEXT index name(column list);
 显示表查询属于哪种类型，常用的有以下八个值:
     |ALL|index|range|ref|eq_ref|const|system|NULL|
     |---|---|---|---|---|---|---|---|
-    
+   
     从最好到最差依次是:
 system>const>eq_ref>ref>range>index>ALL
 一般来说，得保证查询至少达到range级别，最好能达到ref。
