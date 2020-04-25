@@ -7,8 +7,31 @@
 - 字符集设置：file-->settings-->Editor-->File Encodings
 - 插件：file-->settings-->Plugins
 - 设置JVM运行参数 Help-->Edit Customer VM options 或者(用户目录/.IntelliJIdea2019.2/config/idea64.vmoptions)，编辑安装目录下的idea.vmoptions和idea64.vmoptions好像没什么卵用
+- 设置鼠标悬浮提示
+File–>settings–>Editor–>General–>勾选Show quick documentation…
 
+- 显示方法分隔符
+File–>settings–>Editor-> general–>Appearance–>勾选 show method separators
 
+- 忽略大小写提示
+idea的默认设置是严格区分大小写提示的，例如输入string不会提示String，不方便编码
+File–>settings–>Editor–>General -->Code Completion --> 勾掉 Match case
+
+- 自动导包，自动优化导包
+File–>settings–>Editor–>general–>Auto Import–>将已下两个勾选
+Add unambiguous imports on the fly：快速添加明确的导入。
+Optimize imports on the fly：快速优化导入，优化的意思即自动帮助删除无用的导入。
+
+- Intellij idea用快捷键自动生成序列化id
+类继承了Serializable接口之后，鼠标放在类上就能生成serialVersionUID
+进入setting→inspections→serialization issues→勾选serializable class without ‘serialVersionUID’
+鼠标方法在继承了序列化接口的类上，就能看见了
+
+- IDEA统一编辑文件编码
+全局编码设置
+File -> Other Settings -> Default Settings
+file->setting->editor->file encodings
+把transparent native-to-ascll conversion勾选上就行了。当idea中properties配置文件中文显示utf8编码乱码
 ## 插件
 
 - `Alibaba java Coding Guidelines` 阿里巴巴java开发规格  帮助我们提高编码规范
@@ -33,4 +56,19 @@
 - ==Ctrl+n==：搜索java类名
 - ==Ctrl+Shift+N==：搜索文件名
 - ==Ctrl+Shift+F==：全局搜索文件内容
+- ==ctrl+D== 复制一行到下一行
+- ==ctrl+C ctrl+v ctrl+x==
+- ==ctrl+alt+L== 美化代码
+- ==ctrl+alt+o== 优化导包
+- ==CTRL + SHIFT + ENTER== 快速补全分号 
+
+- 建议修改的KeyMap 
+    (find in path) 常用 本人修改 alt+f
+    (generate) 常用 本人修改 alt+e
+
+- shift+alt+ctrl 加鼠标多行操作
+
+- 分屏操作
+
+
 

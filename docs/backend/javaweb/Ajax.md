@@ -95,7 +95,7 @@ public class TestServlet extends HttpServlet {
 
 
 
-## 传统的WEB数据交互VSAJAX数据交互
+## 传统的WEB数据交互 VS AJAX数据交互
 
 
 
@@ -111,13 +111,13 @@ public class TestServlet extends HttpServlet {
   - 传统：需要等待服务器完成响应并且重新加载整个页面之后，用户才能进行后续的操作
   - AJAX：动态更新页面中的局部内容，不影响用户的其他操作
 
-![image-20200419140634892](./pictures/image-20200419140634892.png)
+![image-20200419140634892](https://gitee.com/zero049/MyNoteImages/raw/master/image-20200419140634892.png)
 
 
 
-## 基于jQjuery的Ajax语法
+## 基于jQuery的Ajax语法
 
-**$.ajax({属性})**
+### $.ajax({})
 
 常用的属性参数：
 url：请求的后端服务地址
@@ -127,3 +127,25 @@ dataType：服务器返回的数据类型，text/json
 success：请求成功的回调函数
 error：请求失败的回调函数
 complete：请求完成的回调函数（无论成功或者失败，都会调用,成功则complete先调用，失败则error先调用）
+
+###  $.get(url, [data], [callback], [type])
+
+发送get请求
+
+参数：
+url：请求路径
+data：请求参数
+callback：回调函数
+type：响应结果的类型
+
+
+
+###  $.post(url, [data], [callback], [type])
+
+发送psot请求
+
+参数：
+url：请求路径
+data：请求参数
+callback：回调函数
+type：响应结果的类型

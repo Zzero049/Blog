@@ -115,7 +115,7 @@ JSP Standard Tag LibraryJSP标准标签库，JSP为开发者提供的一系列�
 
 ```jsp
 <%--从list中取出user对象--%>
-<c:forEach items="${list}"var="user">
+<c:forEach items="${list}" var="user">
 	<tr>
 		<td>${user.id}</td>
 		<td>${user.name}</td>
