@@ -16,13 +16,15 @@
 
 
 
-<script>$.get("http://api.youngam.cn/api/one.php",{},function (data) {
-        if(data.code==200){
-            var imgSrc = data.data[0].src;
-            var path = '<img src="'+imgSrc+'"style="height:550px;width:900px;"/>';
-            $("#img").html(path);
-            $("#text").html(data.data[0].text);
-            $("#day").html(data.data[0].day)
-        }
-    });</script>
+<script>
+    var mykey = "f7c47ddd88ca4a0c5d6d787e2214c6fb";
+        $.get("https://api.tianapi.com/txapi/one/index",{key:mykey},function (data) {
+            if(data.code==200){
+                var imgSrc = data.newslist[0].imgurl;
+                var path = '<img src="'+imgSrc+'"style="height:550px;width:900px;"/>';
+                $("#img").html(path);
+                $("#text").html(data.newslist[0].word);
+                $("#day").html(data.newslist[0].date)
+            }
+        });</script>
 
