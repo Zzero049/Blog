@@ -96,7 +96,7 @@ DOM对象也不能使用jQuery对象的属性和方法
 		1、先有jQuery对象
 		2、jQuery对象[下标]  取出相应的DOM对象
 
-![image-20200421120017707](F:\Project\cscode\markdown\java\javaWeb\前端\pictures\image-20200421120017707.png)
+![image-20200426015814312](https://gitee.com/zero049/MyNoteImages/raw/master/image-20200426015814312.png)
 
 
 
@@ -244,9 +244,7 @@ $("btn4").click(function () {
 
 跟选择器差不多，只不过用jQuery对象.属性的形式去取
 
-![image-20200421155250164](F:\Project\cscode\markdown\java\javaWeb\前端\pictures\image-20200421155250164.png)
-
-![image-20200421155355488](F:\Project\cscode\markdown\java\javaWeb\前端\pictures\image-20200421155355488.png)
+![image-20200426015900396](https://gitee.com/zero049/MyNoteImages/raw/master/image-20200426015900396.png)
 
 如
 

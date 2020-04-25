@@ -553,7 +553,7 @@ DOM全称是Document object Model文档对象模型
 
 作用就是把文档中的标签，属性，文本，转换成为对象来管理。
 
-![image-20200420230649118](https://gitee.com/zero049/MyNoteImages/raw/master/image-20200420230649118.png)
+<img src="https://gitee.com/zero049/MyNoteImages/raw/master/image-20200420230649118.png" alt="image-20200420230649118" style="zoom:80%;" />
 
 Document 对象的理解：
 	第一点：Document 它管理了所有的HTML文档内容。
