@@ -21,7 +21,7 @@
         $.get("https://api.tianapi.com/txapi/one/index",{key:mykey},function (data) {
             if(data.code==200){
                 var imgSrc = data.newslist[0].imgurl;
-                var path = '<img src="'+imgSrc+'"style="height:550px;width:900px;"/>';
+                var path = '<img src="'+imgSrc+'"style="height:550px;width:980px;"/>';
                 $("#img").html(path);
                 $("#text").html(data.newslist[0].word);
                 $("#day").html(data.newslist[0].date)
