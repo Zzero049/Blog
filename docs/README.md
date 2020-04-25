@@ -1,5 +1,20 @@
-# zero的笔记
+# Zero的笔记
 
-<div id="oneyan"></div>
+---
 
- <script>var reloaded=false;$(function () { $.get("https://api.ooopn.com/ciba/api.php", function (r) { if (r.code == 200) { console.log(r); $("#oneyan").html("<small>" + r.date + "</small><p>" + r.ciba + "</p><p>" + r["ciba-en"] + '</p><p><img src="' + r.imgurl + '" height="480" width="330" onerror="javascript:this.src=\'https://api.ixiaowai.cn/gqapi/gqapi.php\';this.onerror = null;this.removeAttribute(\'height\');this.removeAttribute(\'width\')"></img></p><p></p>').css("text-indent", "2em") } }, "json"); });</script>
+
+
+<div id="text" style="font-family: Helvetica, 'Hiragino Sans GB', 'Microsoft Yahei', '微软雅黑', Arial, sans-serif;"></div>
+
+
+
+---
+
+<p id="img"></p>
+
+<p id="day" style="color: #8c8c8c;text-align: right"></p>
+
+
+
+<script>$.get("http://api.youngam.cn/api/one.php",{},function (data) {var imgSrc = data.data[0].src;var path = '<img src="'+imgSrc+'"style="height:550px;width:900px;"/>';$("#img").html(path);$("#text").html(data.data[0].text);$("#day").html(data.data[0].day)})</script>
+

@@ -1,7 +1,7 @@
 ## Java内存分配
-https://www.bilibili.com/video/av59814573/?p=65
-
 Java虚拟机的内存可以分为三个区域：栈stack、堆heap、方法区method area
+
+可看https://www.bilibili.com/video/av59814573/?p=65
 
 
 栈的特点如下：
@@ -86,7 +86,7 @@ public class Student{
 3. 当Eden区再次满了，会将S1中的不能清空的对象存到另外一个Survivor中，如S2，同时将Eden区中的不能清空的对象，也复制到S1中，保证Eden和S1，均被清空。
 4. 重复多次（默认15次）Survivor中没有被清理的对象，则会复制到老年代Old（Tenured）区中
 5. 当Old区满了（未满时达到一定比例先用MajorGC清理），则会触发一个一次完整地垃圾回收（FullGC），代价很大。
-<img src="./pictures/Annotation 2019-10-14 113915.png"  div align=center />
+<img src="https://gitee.com/zero049/MyNoteImages/raw/master/Annotation 2019-10-14 113915.png"  div align=center />
 
 在对JVM调优的过程中，很大一部分工作就是对于FullGC的调节。有如下原因可能导致FullGC：
 
