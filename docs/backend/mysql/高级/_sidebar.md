@@ -1,0 +1,7 @@
+- mysql高级
+  - [mysql架构](backend/mysql/高级/mysql高级01简介.md)
+  - [索引优化](backend/mysql/高级/mysql高级03索引优化.md)
+  - [索引优化分析题](backend/mysql/高级/mysql高级04索引优化分析题.md)
+  - [查询截取分析](backend/mysql/高级/mysql高级05查询截取分析.md)
+  - [锁机制](backend/mysql/高级/mysql高级06锁机制.md)
+  - [主从复制](backend/mysql/高级/mysql高级07主从复制.md)
