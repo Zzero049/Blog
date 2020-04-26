@@ -54,25 +54,40 @@ JSP本质上就是一个Servlet，JSP主要负责与用户交互，将最终的�
 500：Java程序抛出异常
 ## JSP内置对象 9个
 1、request：表示一次请求，HttpServletRequest。
+
 2、response：表示一次响应，HttpServletResponse。
+
 3、pageContext：页面上下文，获取页面信息，PageContext。
+
 4、session：表示一次会话，保存用户信息，HttpSession。
+
 5、application：表示当前Web应用，全局对象，保存所有用户共享信息，ServletContext。
+
 6、config：当前JSP对应的Servlet的ServletConfig对象，获取当前Servlet的信息。
+
 7、out：向浏览器输出数据，JspWriter。
+
 8、page：当前JSP对应的Servlet对象，Servlet。
+
 9、excerption：表示JSP页面发生的异常，Exception。
 
 常用的是request、response、session、application、pageContext
 
 #### request常用方法
 1、String getParameter（String key）获取客户端传来的参数。（获取浏览器传入服务器的参数）
+
 2、void setAttribute（String key，Object value）通过键值对的形式保存到request。
+
 3、Object getAttribute（String key）通过key 取出value。(JSP内部传数据用)
+
 4、RequestDispatcher getRequestDispatcher（String path）返回一个RequestDispatcher对象，该对象的forward方法用于请求转发。
+
 5、String[] getParameterValues() 获取客户端传来的多个同名参数
+
 6、void setCharacterEncoding（String charset）指定每个请求的编码。
+
 7、Session getSession() 获取当前session对象
+
 #### response常用方法
 1、sendRedirect（String path）重定向，页面之间的跳转。
 >转发getRequestDispatcher 和重定向 sendRedirect的区别：

@@ -17,14 +17,18 @@
 ---
 
 <script>
-    var mykey = "f7c47ddd88ca4a0c5d6d787e2214c6fb";
+   var mykey = "f7c47ddd88ca4a0c5d6d787e2214c6fb";
         $.get("https://api.tianapi.com/txapi/one/index",{key:mykey},function (data) {
             if(data.code==200){
                 var imgSrc = data.newslist[0].imgurl;
-                var path = '<img src="'+imgSrc+'"style="height:550px;width:980px;"/>';
+                var strJson = data.newslist[0].word;
+                var word = strJson.replace(/\n/g,'<br>');
+                var path = '<img src="'+imgSrc+'" style="height:550px;width:900px;"'+'onerror="javascript:this.src=\'https://api.ixiaowai.cn/gqapi/gqapi.php\'; this.onerror = null;"/>';
                 $("#img").html(path);
-                $("#text").html(data.newslist[0].word);
+                $("#text").html(word);
                 $("#day").html(data.newslist[0].date)
             }
-        });</script>
+        });
+</script>
+
 
