@@ -1,7 +1,7 @@
 - **后端**
   - [Java](backend/java/_sidebar.md)
   - [JavaWeb](backend/javaweb/_sidebar.md)
-  - [SSM](backend/webservice/_sidebar.md)
+  - [SSM](backend/SSM/_sidebar.md)
   - [SpringBoot](backend/springboot/_sidebar.md)
   - [mysql初级](backend/mysql/初级/_sidebar.md)
   - [mysql高级](backend/mysql/高级/_sidebar.md)

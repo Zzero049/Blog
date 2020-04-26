@@ -1,5 +1,6 @@
-
-- ==[返回上一级](backend/SSM/_sidebar.md)==
+---
+- [返回上一级](backend/SSM/_sidebar.md)
+---
 - Spring
 
   - [IOC与DI](backend/SSM/Spring/IOC与DI.md)
