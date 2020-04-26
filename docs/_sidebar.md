@@ -13,7 +13,8 @@
   - [jQuery](front/jQuery.md)
   - [Bootstrap](front/Bootstrap.md)
   - [好用的前端方法](front/好用的前端方法/_sidebar.md)
-
+- **机器学习**
+  - [基础算法](machineLearning/_sidebar.md)
 - **其他**
   - [deepin](others/deepin/_sidebar.md)
   - [IDEA](others/idea/_sidebar.md)
