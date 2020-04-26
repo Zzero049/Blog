@@ -133,7 +133,7 @@ MySQL官方对索引的定义为：索引（Index）是帮助MySQL高效获取�
 索引的目的在于提高查询效率，可以类比字典，如果要查“mysql”这个单词，我们肯定需要定位到m字母，然后从下往下找到y字母，再找到剩下的sql。如果没有索引（数据在数据库杂乱排序），那么你可能需要a----z，如果我想找到Java开头的单词呢？或者Oracle开头的单词呢？那么每次都要全表扫描。
 
 在数据之外，数据库系统还维护着满足特定查找算法的数据结构，这些数据结构以某种方式引用（指向）数据，这样就可以在这些数据结构上实现高级查找算法。这种数据结构，就是索引。下图就是一种可能的索引方式示例：（二叉查找树）
-<img src="./pictures/Annotation 2019-12-23 212647.png"  div align=center />
+![image-20200426182330888](https://gitee.com/zero049/MyNoteImages/raw/master/image-20200426182330888.png)
 
 为了加快Col2的查找，可以维护一个右边所示的二叉查找树，每个节点分别包含索引键值和一个指向对应数据记录物理地址的指针，这样就可以运用二叉查找在一定的复杂度内获取到相应数据，从而快速的检索出符合条件的记录。
 
@@ -201,7 +201,7 @@ ALTER TABLE tbl_name ADD FULLTEXT index name(column list);
 ### mysql索引结构
 这里简要举B树的例子
 1. B树
-<img src="./pictures/Annotation 2019-12-23 221000.png"  div align=center />
+![image-20200426182355201](https://gitee.com/zero049/MyNoteImages/raw/master/image-20200426182355201.png)
 
 【初始化介绍】
 一颗b+树，浅蓝色的块我们称之为一个磁盘块，可以看到每个磁盘块包含几个数据项（深蓝色所示）和指针（黄色所示），如磁盘块1包含数据项17和35，包含指针P1、P2、P3，P1表示小于17的磁盘块，P2表示在17和35之间的磁盘块，P3表示大于35的磁盘块。
@@ -265,8 +265,12 @@ ALTER TABLE tbl_name ADD FULLTEXT index name(column list);
 - 执行计划包含的信息
 
 查询出的表头：
-|id|select_type|table|type|possible_keys|key|key_len|ref|rows|extra|
-|------------|----|----|----|----|----|----|----|----|----|
+
+| id   | select_type | table | type | possible_keys | key  | key_len | ref  | rows | extra |
+| ---- | ----------- | ----- | ---- | ------------- | ---- | ------- | ---- | ---- | ----- |
+|      |             |       |      |               |      |         |      |      |       |
+
+
 
 表头字段解释：
 1. **id**
@@ -300,82 +304,84 @@ ALTER TABLE tbl_name ADD FULLTEXT index name(column list);
     select * from tbl_emp a right join tbl_dept b on a.deptId =b.id;
     ```
 
-    <img src="./pictures/Annotation 2019-12-24 155244.png "  div align=center />
-    <img src="./pictures/Annotation 2019-12-24 155129.png"  div align=center />
-
+   ![image-20200426182732701](https://gitee.com/zero049/MyNoteImages/raw/master/image-20200426182732701.png)
+   
 3. table
 显示这一行的数据是关于哪张表的
 
 4. **type**
 显示表查询属于哪种类型，常用的有以下八个值:
-    |ALL|index|range|ref|eq_ref|const|system|NULL|
-    |---|---|---|---|---|---|---|---|
    
-    从最好到最差依次是:
-system>const>eq_ref>ref>range>index>ALL
-一般来说，得保证查询至少达到range级别，最好能达到ref。
-    - **system**
-    表只有一行记录（等于系统表），这是const类型的特例，平时一般不会出现。
-    - **const**
-    表示通过索引一次就找到了，const用于比较primary key或者unique索引。因为只匹配一行数据，所以很快如将主键置于where列表中，MySQL就能将该查询转换为一个常量
-    - **eq_ref**
-    唯一性索引扫描，对于每个索引键，表中只有一条记录与之匹配。常见于主键或唯一索引扫描(查一个公司的ceo，只有一个)
-    - **ref**
-    非唯一性索引扫描，返回匹配某个单独值的所有行。本质上也是一种索引访问，它返回所有匹配某单独值的行，然而，它可能会找到多个符合条件的行，所以他应该属于查找和扫描的混合。（查一个公司的程序员，有一堆）
-    - **range**
-    只检索给定范围的行，使用一个索引来选择行。key列显示使用了哪个索引一般就是在你的where语句中出现了between、<、>、in等的查询这种范围扫描索引扫描比全表扫描要好，为它只需要开始于索引的某一点，而结束语另一点，不用扫描全部索引。
-    - **index**
-    Full Index Scan，index与ALL区别为index类型只遍历索引树。这通常比ALL快，因为索引文件通常比数据文件小（也就是说虽然all和Index都是读全表但index是从索引中读取的，而all是从硬盘中读的）
-    - **all** 
-    Full Table Scan，将遍历全表以找到匹配的行
+5. | ALL  | index | index | ref  | eq_ref | const | system | NULL |
+  | ---- | ----- | ----- | ---- | ------ | ----- | ------ | ---- |
+  |      |       |       |      |        |       |        |      |
 
-5. possible_keys
-显示可能应用在这张表中的索引，一个或多个。
-查询涉及到的字段上若存在索引，则该索引将被列出，**但不一定被查询实际使用**
+   从最好到最差依次是:
+  system>const>eq_ref>ref>range>index>ALL
+  一般来说，得保证查询至少达到range级别，最好能达到ref。
 
-6. **key**
-实际使用的索引。如果为NULL，则没有使用索引查询中
-<span style='color:red'>若使用了覆盖索引，则该索引仅出现在key列表中<span>
+   - **system**
+   表只有一行记录（等于系统表），这是const类型的特例，平时一般不会出现。
+   - **const**
+   表示通过索引一次就找到了，const用于比较primary key或者unique索引。因为只匹配一行数据，所以很快如将主键置于where列表中，MySQL就能将该查询转换为一个常量
+   - **eq_ref**
+   唯一性索引扫描，对于每个索引键，表中只有一条记录与之匹配。常见于主键或唯一索引扫描(查一个公司的ceo，只有一个)
+   - **ref**
+   非唯一性索引扫描，返回匹配某个单独值的所有行。本质上也是一种索引访问，它返回所有匹配某单独值的行，然而，它可能会找到多个符合条件的行，所以他应该属于查找和扫描的混合。（查一个公司的程序员，有一堆）
+   - **range**
+   只检索给定范围的行，使用一个索引来选择行。key列显示使用了哪个索引一般就是在你的where语句中出现了between、<、>、in等的查询这种范围扫描索引扫描比全表扫描要好，为它只需要开始于索引的某一点，而结束语另一点，不用扫描全部索引。
+   - **index**
+   Full Index Scan，index与ALL区别为index类型只遍历索引树。这通常比ALL快，因为索引文件通常比数据文件小（也就是说虽然all和Index都是读全表但index是从索引中读取的，而all是从硬盘中读的）
+   - **all** 
+   Full Table Scan，将遍历全表以找到匹配的行
 
-7. key_len
+6. possible_keys
+  显示可能应用在这张表中的索引，一个或多个。
+  查询涉及到的字段上若存在索引，则该索引将被列出，**但不一定被查询实际使用**
+
+7. **key**
+  实际使用的索引。如果为NULL，则没有使用索引查询中
+  <span style='color:red'>若使用了覆盖索引，则该索引仅出现在key列表中<span>
+
+8. key_len
     - 表示索引中使用的字节数，可通过该列计算查询中使用的索引的长度。在不损失精确性的情况下，长度越短越好
     - key_len显示的值为索字段的**最大可能长度，并非实际使用长度**，即key_len是根据表定义计算而得，不是通过表内检索出的
 
-8. ref
-显示索引的哪一列被使用了，如果可能的话，是一个常数。哪些列或常量被用于查找索引列上的值(注意与type的ref区别)，常见的值有const，某数据库某表的某字段。
+9. ref
+  显示索引的哪一列被使用了，如果可能的话，是一个常数。哪些列或常量被用于查找索引列上的值(注意与type的ref区别)，常见的值有const，某数据库某表的某字段。
 
-9. **rows**
-根据表统计信息及索引选用情况，大致估算出找到所需的记录所需要读取的行数（越小越好）
+10. **rows**
+  根据表统计信息及索引选用情况，大致估算出找到所需的记录所需要读取的行数（越小越好）
 
-10. **extra**
-包含不适合在其他列中显示但十分重要的额外信息
-     - **Using filesort**
-        - 说明mysql会对数据使用一个外部的索引排序，而不是按照表内的索引顺序进行读取。（慢,尽快优化）
-        - MySQL中无法利用索引完成的排序操作称为“文件排序”
+11. **extra**
+     包含不适合在其他列中显示但十分重要的额外信息
+      - **Using filesort**
+         - 说明mysql会对数据使用一个外部的索引排序，而不是按照表内的索引顺序进行读取。（慢,尽快优化）
+         - MySQL中无法利用索引完成的排序操作称为“文件排序”
 
-    - **Using temporary**
-    使了用临时表保存中间结果，MySQL在对查询结果排序时使用临时表。常见于排序order by和分组查询 group by。（更加慢，尽量保持索引和group by顺序相同）
+     - **Using temporary**
+     使了用临时表保存中间结果，MySQL在对查询结果排序时使用临时表。常见于排序order by和分组查询 group by。（更加慢，尽量保持索引和group by顺序相同）
 
-    - **Using index**
-        - 表示相应的select操作中使用了覆盖索引（Covering Index），避免访问了表的数据行，效率不错！
-        - 如果同时出现using where，表明索引被用来执行索引键值的查找；
-        - 如果没有同时出现using where，表明索引用来直接读取数据而不执行查找动作。
-        - **覆盖索引**
-        select的数据列只用从索引中就能够取得，不必读取数据行，MySQL可以利用索引返回select列表中的字段，而不必根据索引再次读取数据文件，换句话说查询列要被所建的索引覆盖。
+     - **Using index**
+         - 表示相应的select操作中使用了覆盖索引（Covering Index），避免访问了表的数据行，效率不错！
+         - 如果同时出现using where，表明索引被用来执行索引键值的查找；
+         - 如果没有同时出现using where，表明索引用来直接读取数据而不执行查找动作。
+         - **覆盖索引**
+         select的数据列只用从索引中就能够取得，不必读取数据行，MySQL可以利用索引返回select列表中的字段，而不必根据索引再次读取数据文件，换句话说查询列要被所建的索引覆盖。
 
-    - Using where
-    表明使用了Where过滤
+     - Using where
+     表明使用了Where过滤
 
-    - Using join buffer
-    使用了连接缓存
+     - Using join buffer
+     使用了连接缓存
 
-    - impossible where
-    where子句的值总是false的，不可能从where中获得元组
+     - impossible where
+     where子句的值总是false的，不可能从where中获得元组
 
-    - select table optimized away
-    在没有GROUPBY子句的情况下，基手索引优化MIN/MAX操作或者对于MyISAM存储引擎优COUNT（*）操作，不必等到执行阶段再进行计算，查询执行计划生成的阶段即完成优化。
-    - distinct
-    优化distinct操作，在找到第一匹配的元组后即停止找同样值的动作
+     - select table optimized away
+     在没有GROUPBY子句的情况下，基手索引优化MIN/MAX操作或者对于MyISAM存储引擎优COUNT（*）操作，不必等到执行阶段再进行计算，查询执行计划生成的阶段即完成优化。
+     - distinct
+     优化distinct操作，在找到第一匹配的元组后即停止找同样值的动作
 
 ## 示例
 ### 单表优化
@@ -588,7 +594,7 @@ ALTER TABLE staffs ADD INDEX idx_staffs_nameAgePos(NAME,age,pos);
     ```
 
 总结表
-<img src="./pictures/Annotation 2019-12-25 141441.png "  div align=center />
+![image-20200426182616535](https://gitee.com/zero049/MyNoteImages/raw/master/image-20200426182616535.png)
 全值匹配我最爱，最左前缀要遵守；
 带头大哥不能死，中间兄弟不能断；
 索引列上少计算，范围之后全失效；
