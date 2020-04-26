@@ -4,8 +4,7 @@
 3. Java字符串就是Unicode字符序列，例如字符串"Java"就是4个Unicode字符"J"、"a"、"v"、"e"组成的。
 4. Java没有内置的字符串类型，而是在标准Java类库中提供了一个预定义的类String，每个用双引号括起来的字符串都是String类的一个实例。
 
-
-<img src="./pictures/Annotation 2019-10-31 103303.png"  div align=center />
+![image-20200426032009286](https://gitee.com/zero049/MyNoteImages/raw/master/image-20200426032009286.png)
 我们发现字符串内容全部存储到value[]数组中，而变量value是final类型的，也就是常量（即只能被赋值一次）。这就是“不可变对象”的典型定义方式。
 我们发现在前面学习String的某些方法，比如：substring()是对字符串的截取操作，但本质是读取原字符串内容生成了新的字符串。
 <br/>
@@ -62,13 +61,13 @@ a字符串是否以Hello开头
 去除字符串首尾的空格，只是首尾的
 
 在遇到字符串常量之间的拼接时，编译器会做出优化，即在编译期间就会完成字符串的拼接。因此，在使用==进行String对象之间的比较时，我们需要特别注意，值的比较最好用equals。
-<img src="./pictures/Annotation 2019-10-31 104425.png"  div align=center />
+![image-20200426032024787](https://gitee.com/zero049/MyNoteImages/raw/master/image-20200426032024787.png)
 
 ## StringBuilder类与StringBuffer类
 
 由于String类是不可变序列，对内存不友好（改变字符串是通过new一个对象实现的），于是有StringBuilder和StringBuffer类，产生可变序列。StringBuilder线程不安全，效率高（一般使用它）；StringBuffer线程安全，效率低。
 
-<img src="./pictures/Annotation 2019-10-31 110433.png"  div align=center />
+![image-20200426032035754](https://gitee.com/zero049/MyNoteImages/raw/master/image-20200426032045108.png)
 
 String类和StringBuilder类在增加字符的情况下占用内存和花费时间对比
 ```java
@@ -100,5 +99,5 @@ public static void main(String[] args) {
 ```
 
 运行结果，一定不能这么写，程序在多次调用的话，内存会占满，然后崩溃
-<img src="./pictures/Annotation 2019-10-31 112601.png"  div align=center />
+![image-20200426032045108](https://gitee.com/zero049/MyNoteImages/raw/master/image-20200426032035754.png)
 

@@ -48,7 +48,7 @@ Hyperlext Markup Language：超文本标记语言，简单理解为浏览器使�
 * form
 * input
 ...
-<img src="./pictures/Annotation 2019-12-05 113732.png"  div align=center />
+![image-20200426031921584](pictures/image-20200426031921584.png)
 
 post：提交，基于http协议，不同量大，请求参数url不可见安全
 get：默认，获取，基于http协议，不同量小，请求参数url可见不安全
@@ -58,7 +58,7 @@ id：作为前端使用，区分唯一
 
 ### HTTP
 超文本传输协议（HTTP，Hyper Text Transfer Protocol）是互联网上应用最为广泛的一种网络协议，所有的WWW文件都必须遵守这个标准。
-<img src="./pictures/Annotation 2019-12-04 210312.png"  div align=center />
+![image-20200426031934438](pictures/image-20200426031934438.png)
 
 #### 请求协议
 1、请求行：方法（GET/POST）、URI、协议版本
@@ -101,7 +101,7 @@ Date:Mon，31Dec209904：25：57GMT
 Server:shsxt Server/0.0.1；charset=GBK Content-type:text/html 
 Content-length：39725426
 3、请求正文（注意与请求头之间有个空行）
- 
+
 xxxxxx
 
 <img src="./pictures/Annotation 2019-12-05 120443.png"  div align=center />
@@ -109,6 +109,3 @@ xxxxxx
 
 <br>根据http协议的报文解析并返回相应报文，就是后台逻辑要做的事情</br>
 
-html骨架框架
-css皮肤
-js交互

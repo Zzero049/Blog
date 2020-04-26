@@ -59,3 +59,6 @@ public class Main{
 ```
 * 单行注释 //
 * 多行注释 /* */
+
+### Scanner获取输入
+https://blog.csdn.net/u013568373/article/details/92803182

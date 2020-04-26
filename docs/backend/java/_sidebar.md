@@ -1,16 +1,26 @@
-- java
-
+- ==[返回上一级](_sidebar.md)==
+- java基础
   - [入门](backend/java/java_first.md)
   - [关键字](backend/java/关键字、保留字.md)
   - [变量常量](backend/java/变量、常量.md)
+  - [数组](backend/java/数组.md)
+  - [常用类](backend/java/常用类.md)
+  - [String.md](backend/java/String.md)
   - [继承封装多态](backend/java/继承、封装、多态.md)
-  - 容器
-    - [数组复习](backend/java/collection/array.md)
-    - [linkedList](backend/java/collection/linkedList.md)
-    - [map](backend/java/collection/map.md)
-    - [Collection容器](backend/java/collection/Collection容器.md)
-  - [多线程](backend/java/多线程.md)
-
+  - [链表](backend/java/链表.md)
+  - [容器](backend/java/容器.md)
+  - [Collection接口](backend/java/Collection接口.md)
+  - [map](backend/java/map.md)
+  - [集合类与lambda](backend/java/集合类与lambda.md)
+  - [继承封装多态](backend/java/继承、封装、多态.md)
+  - [接口与内部类](backend/java/接口与内部类)
+  - [JVM](backend/java/JVM)
+  - [内存分配](backend/java/内存分配.md)
+  - [io](backend/java/io.md)
+  - [异常](backend/java/异常.md)
   - [注解](backend/java/注解.md)
-
-    
+  - [web服务器初学](backend/java/web服务器初学.md)
+  - [JDBC&事务](backend/java/JDBC&事务.md)
+- 知识点
+  - [final与重写重载.md](backend/java/final与重写重载.md)
+  - [正则表达式.md](backend/java/正则表达式.md)

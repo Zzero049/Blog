@@ -8,7 +8,7 @@ data source。提供原始数据的原始媒介，常见的：数据库、文件
 * Java的流类型一般位于java.io包中
 
 整个Java.io包中最重要的就是5个类和3个接口
-<img src="./pictures/Annotation 2019-11-09 153426.png"  div align=center />
+![image-20200426033447503](https://gitee.com/zero049/MyNoteImages/raw/master/image-20200426033447503.png)
 
 ### 流分类
 按数据方向划分：
@@ -17,29 +17,29 @@ data source。提供原始数据的原始媒介，常见的：数据库、文件
 
 按功能方向划分：
 节点流：可以直接从数据源或目的地读写数据
-<img src="./pictures/Annotation 2019-11-09 154043.png"  div align=center />
+![image-20200426033438005](https://gitee.com/zero049/MyNoteImages/raw/master/image-20200426033438005.png)
 
 处理流（包装流）：不直接连接到数据源或目的地，是其他流进行封装。目的主要是简化操作和提高性能。
-<img src="./pictures/Annotation 2019-11-09 154112.png"  div align=center />
+![image-20200426033431652](https://gitee.com/zero049/MyNoteImages/raw/master/image-20200426033431652.png)
 
 
 **节点流和处理流的关系：**
 1. 节点流处于io操作的第一线，所有操作必须通过他们进行；
 2. 处理流可以对其他流进行处理（提高效率或操作灵活性）。
-<img src="./pictures/Annotation 2019-11-09 212504.png"  div align=center />
+![image-20200426033421705](https://gitee.com/zero049/MyNoteImages/raw/master/image-20200426033421705.png)
 
 
 
 按数据类型划分
 字节流：按照字节读取数据（InputStream、OutputStream）
-<img src="./pictures/Annotation 2019-11-09 154646.png"  div align=center />
+![image-20200426033412799](https://gitee.com/zero049/MyNoteImages/raw/master/image-20200426033412799.png)
 字符流：按照字符读取数据（Reader、Writer），因为文件编码的不同，从而有了对字符进行高效操作的字符流对象。（GBK，UTF8，Unicode）
-<img src="./pictures/Annotation 2019-11-09 154738.png"  div align=center />
+![image-20200426033350036](https://gitee.com/zero049/MyNoteImages/raw/master/image-20200426033350036.png)
 原理：底层还是基于字节流操作，自动搜寻了指定的码表。
 
 ## File类
 #### 文件操作API
-<img src="./pictures/Annotation 2019-11-09 163129.png"  div align=center />
+![image-20200426033341966](https://gitee.com/zero049/MyNoteImages/raw/master/image-20200426033341966.png)
 
 注意
 1. exist()是否存在,isFile()是否是文件,isDirectory()是否是文件夹，返回true或者false。exist()，isFile()，isDirectory()一般配合if语句去控制对各种文件的操作
@@ -51,7 +51,7 @@ data source。提供原始数据的原始媒介，常见的：数据库、文件
 
 #### 文件夹操作API
 
-<img src="./pictures/Annotation 2019-11-09 165307.png"  div align=center />
+![image-20200426033331451](https://gitee.com/zero049/MyNoteImages/raw/master/image-20200426033331451.png)
 
 注意
 1. mkdir()需要确保路径上所有文件夹都存在，mkdirs()没有则创建，操作成功true,失败false
@@ -59,7 +59,7 @@ data source。提供原始数据的原始媒介，常见的：数据库、文件
 
 #### 文件编码
 字符集：Java字符使用16位的双字节存储（Unicode-16），但是在实际文件存储的数据有各种字符集，需要正确操作，否则就有乱码的发生。
-<img src="./pictures/Annotation 2019-11-09 204029.png"  div align=center />
+![image-20200426033320494](https://gitee.com/zero049/MyNoteImages/raw/master/image-20200426033320494.png)
 utf-8英文字符用1B表示，中文字符用3B表示
 UTF-16每个字符都用2B表示，有一定的空间浪费。
 GBK（ANSI）中文2B，英文1B。
@@ -84,16 +84,16 @@ public static void main(String[] args) throws UnsupportedEncodingException {
 ```
 
 输出结果
-<img src="./pictures/Annotation 2019-11-09 211918.png"  div align=center />
+![image-20200426033309885](https://gitee.com/zero049/MyNoteImages/raw/master/image-20200426033309885.png)
 
 #### 四个抽象类
 熟悉以下的常用方法
-<img src="./pictures/Annotation 2019-11-09 212645.png"  div align=center />
+![image-20200426033256850](https://gitee.com/zero049/MyNoteImages/raw/master/image-20200426033256850.png)
 
 
 
 </br>涉及的File即计算机文件的都需要通过操作系统间接读取，使用后需要释放资源，而ByteArray是一段内存，java虚拟机可以直接访问，释放也由java回收机制gc释放</br>
-<img src="./pictures/Annotation 2019-11-14 210217.png"  div align=center />
+![image-20200426033246449](https://gitee.com/zero049/MyNoteImages/raw/master/image-20200426033246449.png)
 ByteArrayOutputStram()  不需要传地址 
 
 ### 装饰器（GoF）
@@ -195,7 +195,7 @@ class Sugar extends Decorate{
 ```
 
 输出结果
-<img src="./pictures/Annotation 2019-11-15 092928.png"  div align=center />
+![image-20200426033228604](https://gitee.com/zero049/MyNoteImages/raw/master/image-20200426033228604.png)
 
 <br>
 IO的装饰类主要有

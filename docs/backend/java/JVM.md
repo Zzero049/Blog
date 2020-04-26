@@ -18,7 +18,7 @@ JVM把class文件加载到内存，并对数据进行校验、解析和初始化
    * 虚拟机会保证一个类的\<clinit>()方法在多线程环境中被正确加锁和同步。
     * 当访问一个Java类的静态域时，只有真正声明这个域的类才会被初始化。
 
-<img src="./pictures/Annotation 2019-12-06 201029.png"  div align=center />
+![image-20200426032149469](https://gitee.com/zero049/MyNoteImages/raw/master/image-20200426032149469.png)
 
 * 类的主动引用（一定会发生类的初始化）
     * new一个类的对象
@@ -59,7 +59,7 @@ JVM把class文件加载到内存，并对数据进行校验、解析和初始化
 * 除此之外，ClassLoader还负责加载Java应用所需的资源，如图像文件和配置文件等。
 
 相关方法：
-<img src="./pictures/Annotation 2019-12-06 210336.png"  div align=center />
+
 对于以上给出的方法，表示类名称的name参数的值是类的二进制名称。需要注意的是内部类的表示，如com.example.Sample\$1和com.example.Sample\$Inner等表示方式。
 
 ##### 代理模式
