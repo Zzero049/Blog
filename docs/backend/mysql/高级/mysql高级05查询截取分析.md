@@ -105,7 +105,7 @@ ORDER BY age DESC, birth DESC;
 
 总结：  
 
-<img src="./pictures/Annotation 2019-12-25 154548.png"  div align=center />
+![image-20200426123247502](https://gitee.com/zero049/MyNoteImages/raw/master/image-20200426123247502.png)
 
 
 ### Group by优化（与orderby类似）
@@ -155,7 +155,7 @@ SET GLOBAL long_query_time=4;
 ```
 输入 sleep(5);进行测试，在日志文件可见
 
-<img src="./pictures/Annotation 2019-12-25 160540.png"  div align=center />
+![image-20200426123309316](https://gitee.com/zero049/MyNoteImages/raw/master/image-20200426123309316.png)
 
 查看一共有多少条慢查询记录
 ```sql
@@ -177,7 +177,7 @@ SHOW GLOBAL STATUS LIKE '%slow_queries';
 -g：后边搭配一个正则匹配模式，大小写不敏感的；
 
 ```
-<img src="./pictures/Annotation 2019-12-25 161331.png"  div align=center />
+![image-20200426123323945](https://gitee.com/zero049/MyNoteImages/raw/master/image-20200426123323945.png)
 
 ## 批量数据脚本
 假设要插入一千万条的数据。
@@ -258,7 +258,7 @@ SHOW PROFILE cpu,block io FOR QUERY 16;
 ```
 
 可选的参数
-<img src="./pictures/Annotation 2019-12-25 171741.png"  div align=center />
+![image-20200426123345073](https://gitee.com/zero049/MyNoteImages/raw/master/image-20200426123345073.png)
 
 #### profile查看的status异常状态
 1. converting HEAP to MyISAM查询结果太大，内存都不够用了，往磁盘上搬了。
