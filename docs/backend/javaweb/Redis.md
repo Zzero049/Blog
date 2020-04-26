@@ -16,7 +16,7 @@ redis是一款高性能的NOSQL系列的非关系型数据库，是用c语言开
 
 关系型数据库和非关系型数据库区别：（关系型数据库存取慢）
 
-![image-20200422125355785](F:\Project\cscode\markdown\java\javaWeb\pictures\image-20200422125355785.png)
+![image-20200422125355785](https://gitee.com/zero049/MyNoteImages/raw/master/image-20200422125355785.png)
 
 优点：
 1）成本：nosql数据库简单易部署，基本都是开源软件，不需要像使用oracle那样花费大量成本购买使用，相比关系型数据库价格便宜。
@@ -41,11 +41,11 @@ redis是一款高性能的NOSQL系列的非关系型数据库，是用c语言开
 
 [Redis中文网](https://www.redis.net.cn/)  linux版
 
-![](F:\Project\cscode\markdown\java\javaWeb\pictures\image-20200422130244686.png)
+![](https://gitee.com/zero049/MyNoteImages/raw/master/image-20200422130244686.png)
 
 win版 https://github.com/microsoftarchive/redis/releases/tag/win-3.2.100
 
-![image-20200422131108759](F:\Project\cscode\markdown\java\javaWeb\pictures\image-20200422131108759.png)
+![image-20200422131108759](https://gitee.com/zero049/MyNoteImages/raw/master/image-20200422131108759.png)
 
 win端解压直接可以使用：
 	redis.windows.conf：    配置文件
@@ -68,7 +68,7 @@ redis存储的是：key，value格式的数据，其中key都是字符串，valu
 
 本质基本元素都是字符串
 
-![image-20200422134807123](F:\Project\cscode\markdown\java\javaWeb\pictures\image-20200422134807123.png)
+![image-20200422134807123](https://gitee.com/zero049/MyNoteImages/raw/master/image-20200422134807123.png)
 
 #### 字符串类型 string 
 1.存储：set key value

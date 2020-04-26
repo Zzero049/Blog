@@ -1,6 +1,6 @@
 # Servlet
 Servlet是Java Web开发的基石，与平台无关的服务器组件，它是运行在Servlet 容器/Web应用服务器/Tomcat，负责与客户端进行通信。
-<img src="pictures/Snipaste_2020-04-17_14-57-01.png">
+![image-20200426131459468](https://gitee.com/zero049/MyNoteImages/raw/master/image-20200426131459468.png)
 
 Servlet的功能：
 1、创建并返回基于客户请求的动态HTML页面。

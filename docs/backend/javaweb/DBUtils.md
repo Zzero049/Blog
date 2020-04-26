@@ -1,9 +1,3 @@
----
-typora-copy-images-to: pictures
-typora-root-url: ./
-
----
-
 
 
 # DBUtils
@@ -14,9 +8,7 @@ DBUtils 可以帮助开发者完成数据的封装（结果集到Java对象的�
 
 导入jar包
 
-![image-20200419154716198](./pictures/image-20200419154716198.png)
-
-
+![image-20200426131341410](https://gitee.com/zero049/MyNoteImages/raw/master/image-20200426131341410.png)
 
 传统方式，需要自己在结果集封装到实体类
 

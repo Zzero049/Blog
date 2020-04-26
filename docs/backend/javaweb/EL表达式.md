@@ -102,7 +102,7 @@ JSP Standard Tag LibraryJSP标准标签库，JSP为开发者提供的一系列�
 
 1、需要导入jar包（两个jstl.jar standard.jar）
 
-![image-20200418203003930](./pictures/image-20200418203003930.png)
+![image-20200426131407394](https://gitee.com/zero049/MyNoteImages/raw/master/image-20200426131407394.png)
 
 2、在JSP页面开始的地方导入JSTL标签库
 
