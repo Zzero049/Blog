@@ -14,7 +14,7 @@
 
 <p id="day" style="color: #8c8c8c;text-align: right"></p>
 
-
+---
 
 <script>
     var mykey = "f7c47ddd88ca4a0c5d6d787e2214c6fb";
