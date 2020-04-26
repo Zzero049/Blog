@@ -40,20 +40,24 @@ jQuery中$是一个函数
 $是jQuery的核心函数，能完成jQuery的很多功能。$()就是调用$这个函数
 
 1、传入参数为[函数]时：
-		表示页面加载完成之后。相当于window.onload=function(){}
+
+​		表示页面加载完成之后。相当于window.onload=function(){}
 
 2、传入参数为[HTML字符串]时：
-		会对我们创建这个html标签对象
+
+​		会对我们创建这个html标签对象
 
 3、传入参数为[选择器字符串]时：
-		$(“#id属性值”);              id 选择器，根据id查询标签对象
+
+​		$(“#id属性值”);              id 选择器，根据id查询标签对象
 
 ​		$(“标签名”);                 标签名选择器，根据指定的标签名查询标签对象
 
 ​		$(“.class属性值”);              类型选择器，可以根据class属性查询标签对象
 
 4、传入参数为[DOM对象]时：
-		会把这个dom 对象转换片jQuery对象
+
+​		会把这个dom 对象转换片jQuery对象
 
 ## Dom与jQuery
 
@@ -84,17 +88,22 @@ jQuery对象
   
 
 jQuery 对象不能使用DOM对象的属性和方法
+
 DOM对象也不能使用jQuery对象的属性和方法
 
 ### Dom对象和jQuery对象互转
 
 1、dom对象转化为jQuery对象
-		1、先有DOM对象
-		2、$(DOM对象) 就可以转换成为jQuery对象
+
+​		1、先有DOM对象
+
+​		2、$(DOM对象) 就可以转换成为jQuery对象
 
 2、jQuery对象转为dom对象
-		1、先有jQuery对象
-		2、jQuery对象[下标]  取出相应的DOM对象
+
+​		1、先有jQuery对象
+
+​		2、jQuery对象[下标]  取出相应的DOM对象
 
 ![image-20200426015814312](https://gitee.com/zero049/MyNoteImages/raw/master/image-20200426015814312.png)
 
@@ -107,16 +116,19 @@ $function(){}和window.onload=function(){}区别：
 **触发顺序：**
 
 1、jQuery页面加载完成之后先执行
+
 2、原生js的页面加载完成jQuery执行之后执行
 
 原因：
 
 1、jQuery的页面加载完成之后是浏览器的内核解析完页面的标签创建好DOM对象之后就会马上执行。
+
 2、原生s的页面加载完成之后，除了要等浏览器内核解析完标签创建好DOM对象，还要等标签显示时需要的内容加载完成。
 
 **执行次数：**
 
 1、原生js的页面加载完成之后，只会执行最后一次的赋值函数。
+
 2、jQuery的页面加载完成之后是全部把注册的function函数，依次顺序全部执行。
 
 
@@ -126,8 +138,11 @@ $function(){}和window.onload=function(){}区别：
 ### 基础选择器
 
 #ID                                       选择器：根据id查找标签对象
+
 .class								   选择器：根据class查找标签对象
+
 element                              选择器：根据标签名查找标签对象选择器：表示任意的，所有的元素
+
 selector1，selector2        组合选择器：合并选择器1，选择器2的结果并返回
 
 ### 层级选择器
@@ -256,10 +271,13 @@ $("div").eq(1)
 ## jQuery属性
 
 html()     它可以设置和获取起始标签和结束标签中的内容。  跟dom属性innerHTML一样。
+
 text()      它可以设置和获取起始标签和结束标签中的文本。   跟dom属性innerText一样。
+
 val()          它可以设置和获取表单项的value属性值。                跟dom 属性value一样。
 
 attr（）可以设置和获取属性的值（属性不存在返回undefined），不推荐操作checked、readonly、selected、disabled等等
+
 prop（）可以设置和获取属性的值（属性不存在返回false），只推荐操作checked、readonly、selected、disabled等等
 
 html()、text()、val()不传参数为获取，传参数为赋值

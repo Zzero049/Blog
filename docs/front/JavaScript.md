@@ -9,9 +9,12 @@
 ​	JS是弱类型，Java是强类型。（弱类型就是类型可变；强类型，就是定义变量的时候。类型已确定。而且不可变。）
 
 特点：
-	1.交互性（它可以做的就是信息的动态交互）
-	2.安全性（不允许直接访问本地硬盘）
-	3.跨平台性（只要是可以解释Js的浏览器都可以执行，和平台无关）
+
+​	1.交互性（它可以做的就是信息的动态交互）
+
+​	2.安全性（不允许直接访问本地硬盘）
+
+​	3.跨平台性（只要是可以解释Js的浏览器都可以执行，和平台无关）
 
 
 
@@ -102,9 +105,11 @@ alert(a===b)//false
 0、null、undefined、"" (空字符串)  都认为是false；
 
 - 8&且运算。有两种情况：
-  第一种：当表达式全为真的时候。返回最后一个表达式的值。
-  第二种：当表达式中，有一个为假的时候。返回第一个为假的表达式的值
+  
+  ​	第一种：当表达式全为真的时候。返回最后一个表达式的值。
 
+  ​	第二种：当表达式中，有一个为假的时候。返回第一个为假的表达式的值
+  
   ```js
   var a = "abc";
   var b = true;
@@ -113,16 +118,17 @@ alert(a===b)//false
   
   alert(a && b) 		//true
   alert(b && a)		//abc
-  alert(a && c && d)	//null
+alert(a && c && d)	//null
   ```
 
   
-
+  
 - ||或运算
-  第一种情况：当表达式全为假时，返回最后一个表达式的值
-
-  第二种情况：只要有一个表达式为真。就会把回第一个为真的表达式的值
-
+  
+​	第一种情况：当表达式全为假时，返回最后一个表达式的值
+  
+​	第二种情况：只要有一个表达式为真。就会把回第一个为真的表达式的值
+  
   ```js
   var a = "abc";
   var b = true;
@@ -131,8 +137,8 @@ alert(a===b)//false
   
   alert(c && d) 		//false
   alert(c || a || b)	//abc
-  ```
-
+```
+  
   
 
 ## <font color="red">数组</font>
@@ -585,25 +591,29 @@ class Dom{
 ### Dom对象中的方法
 
 - document.getElementById（elementId）
-  通过标签的id属性查找标签dom对象，elementId是标签的id属性，返回查找成功的第一个对象
-
+  
+通过标签的id属性查找标签dom对象，elementId是标签的id属性，返回查找成功的第一个对象
+  
 - document.getElementsByName（elementName）
-  通过标签的name属性查找标签dom对象，elementName标签的name 属性值
-
+  
+通过标签的name属性查找标签dom对象，elementName标签的name 属性值
+  
 - document.getElementsByTagName（tagName）
-  通过标签名查找标签dom对象。tagName是标签名
-
+  
+通过标签名查找标签dom对象。tagName是标签名
+  
 - document.createElement（tagName）
-  通过给定的标签名，创建一个标签对象。tagName是要创建的标签名
-
+  
+通过给定的标签名，创建一个标签对象。tagName是要创建的标签名
   
 
-  document 对象的三个查询方法，如果有id属性，优先使用getElementById方法来进行查询
-
-  如果没有id属性，则优先使用getElementsByName方法来进行查询
-
-  如果id属性和name属性都没有最后再按标签名查 getElementsBy TagName
-
+  
+document 对象的三个查询方法，如果有id属性，优先使用getElementById方法来进行查询
+  
+如果没有id属性，则优先使用getElementsByName方法来进行查询
+  
+如果id属性和name属性都没有最后再按标签名查 getElementsBy TagName
+  
   注意html没有的属性是无法通过.属性赋值成功的，而且语句是从上向下执行创建对象的
 
 #### getElementById
@@ -757,10 +767,13 @@ var inputs = document.getElementById("div01").getElementsByTagName("input")
 
 - 方法：
   - getElementsByTagName（）
+    
     通过具体的元素节点调用，获取当前节点的指定标签名孩子节点-
-  - appendChild（oChildNode）
+    
+- appendChild（oChildNode）
+    
     可以添加一个子节点，oChildNode是要添加的孩子节点
-
+  
 - 属性
   - childNodes属性，获取当前节点的所有子节点
   - firstChild 属性，获取当前节点的第一个子节点

@@ -22,20 +22,23 @@ CSS是“层叠样式表单”。是用于（增强）控制网页样式并允�
 xxxxxxxxxx <div style="border: brown solid 2px ">lalala</div>html
 ```
 
-把css样式写戴一个单独的css文件，再通过limk标签引入即可复用。|把css样式写戴一个单独的css文件，再通过limk标签引入即可复用。|然而这样会出现问题：
-
-
+把css样式写戴一个单独的css文件，再通过limk标签引入即可复用。把css样式写戴一个单独的css文件，再通过limk标签引入即可复用。然而这样会出现问题：
 
 1.如果标签多了。样式多了。代码量非常庞大。
+
 2.可读性非常差。
+
 3.Css代码没什么复用性可方言。
 
 ### 第二种方式
 
 在headd标签来定义各种自己需要的css样式。
+
 格式如下：
+
 xxx{
-	Key:value value;
+
+​	Key:value value;
 
 }
 
