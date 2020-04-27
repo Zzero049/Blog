@@ -2,10 +2,15 @@
 AoP：全称是Aspect oriented programming即：面向切面编程。简单的说它就是把我们程序重复的代码抽取出来，在需要执行的时候，使用动态代理的技术，在不修改源码的基础上，对我们的已有方法进行增强。
 
 作用：
+
 在程序运行期间，不修改源码对已有方法进行增强。(通过实现动态代理)
+
 优势：
+
 减少重复代码
+
 提高开发效率
+
 维护方便
 
 ## spring中的aop
@@ -15,7 +20,7 @@ AoP：全称是Aspect oriented programming即：面向切面编程。简单的�
     * 所谓切入点是指我们要对哪些Joinpoint进行拦截的定义。(连接点中需要被增强的方法)
 
 * Advice（通知/增强）：
-    * 所谓通知是指拦截到Joinpoint之后所要做的事情就是通知。
+    * 所谓通知是指拦截到 Joinpoint 之后所要做的事情就是通知。
     * 通知的类型：前置通知，后置通知，异常通知，最终通知，环绕通知（整个invoke方法执行）。
     ![image-20200426025419851](https://gitee.com/zero049/MyNoteImages/raw/master/image-20200426025419851.png)
 
@@ -109,38 +114,49 @@ AoP：全称是Aspect oriented programming即：面向切面编程。简单的�
     * ref属性：是指定增强类bean的Id。
 4. 在aop:aspect标签的内部使用对应标签来配直通知的类型
     * 我们现在示例是让printLog方法在切入点方法执行之前之前：所以是前置通知
-    前置通知：在切入点方法执行之前执行
-    后置通知：在切入点方法**正常执行之后**值
-    异常通知：在切入点方法执行产生异常之后执行
-    最终通知：无论切入点方法是否正常执行它都会在其后面执行
+      前置通知：在切入点方法执行之前执行
+      后置通知：在切入点方法**正常执行之后**值
+      异常通知：在切入点方法执行产生异常之后执行
+      最终通知：无论切入点方法是否正常执行它都会在其后面执行
+    
     * aop:before：表示配置前置通知
         * method属性：用于指定Logger类中哪个方法是前置通知
-        * pointcut属性：用于指定切入点表达式，该表达式的含义指的是对业务层中哪些方法增强
-
+    * pointcut属性：用于指定切入点表达式，该表达式的含义指的是对业务层中哪些方法增强
+   
    * 切入点表达式的写法：
         * 关键字：execution（表达式）
         * 表达式：
-        访问修饰符 返回值  包名.包名.包名...类名.方法名(参数列表)
+        * 访问修饰符 返回值  包名.包名.包名...类名.方法名(参数列表)
+        
     * 标准的表达式写法：
          `public void day03_eesy_03springAOP.com.impl.AccountServiceImpl.saveAccount()`
-         其中，访问修饰符可以省略`pbulci void`==》`void day03_eesy_03springAOP.com.impl.AccountServiceImpl.saveAccount()`
-         返回值可以使用通配符，表示任意返回值(void ==》*)
-
+      
+         其中，访问修饰符可以省略`public void`==》`void `
+   
+      `day03_eesy_03springAOP.com.impl.AccountServiceImpl.saveAccount()`
+         
+   返回值可以使用通配符，表示任意返回值(void ==》*)
+      
          包名可以使用通配符，表示任意包。但是有几级包，就需要写几个*
+
          `* *.*.*.AccountServiceImpl.saveAccount()`
-
+   
          包名可以使用..表示当前包及其子包
+         
          `* *..AccountServiceImpl.saveAccount()`
-
-         类名和方法名都可以使用*来实现通配
-
-         参数列表：可以直接写数据类型：
-            &emsp;基本类型直接写名称 &emsp;int
-            &emsp;用类型写包名.类名的方式  &emsp;java.lang.String
+        
+        类名和方法名都可以使用*来实现通配
+        
+        参数列表：可以直接写数据类型：
+        
+           &emsp;基本类型直接写名称 &emsp;int
+           &emsp;用类型写包名.类名的方式  &emsp;java.lang.String
+        
         可以使用通配符表示任意类型，但是必须有参数
         可以使用..表示有无参数均可，有参数可以是任意类型
-    * 全通配写法
         
+    * 全通配写法
+      
         * `* *..*.*(..)`
 
 <img src="https://gitee.com/zero049/MyNoteImages/raw/master/Annotation 2020-03-27 153932.png"  div align=center />

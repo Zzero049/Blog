@@ -73,15 +73,23 @@ spring-expression-5.1.8.RELEASE.jar   //提供对Spring表达式语言的支持
 
 ### 程序的耦合实例
 耦合：程序间的依赖关系包括：
+
 &emsp;&emsp;类之间的依赖
+
 &emsp;&emsp;方法间的依赖
+
 解耦：
+
 &emsp;&emsp;降低程序间的依赖关系
+
 实际开发中：
+
 &emsp;&emsp;应该做到：编译期不依赖，运行时才依赖。
 
 解耦的思路：
+
 &emsp;&emsp;第一步：使用反射来创建对象，而避免使用new关键字。
+
 &emsp;&emsp;第二步：通过读取配置文件来获取要创建的对象全限定类名
 
 
@@ -215,28 +223,44 @@ global-session解释：
 
 ### spring 中的依赖注入
 依赖注入：
+
 &emsp;Dependency Injection 
+
 IOC的作用：
+
 &emsp;降低程序间的耦合（依赖关系）
+
 依赖关系的管理：
+
 &emsp;以后都交给spring来维护
+
 在当前类需要用到其他类的对象，由spring为我们提供，我们只需要在配置文件中说明
 
 依赖关系的维护：
+
 &emsp;就称之为依赖注入。
+
 依赖注入：能注入的数据：有三类
+
 &emsp;1. 基本类型和String
+
 &emsp;2. 其他bean类型（在配置文件中或者注解配置过的bean）
+
 &emsp;3. 复杂类型/集合类型
 
 注入的方式：有三种
+
 &emsp;&emsp;&emsp;第一种：使用构造函数提供
+
 &emsp;&emsp;&emsp;第二种：使用set方法提供
-&emsp;&emsp;&emsp;第三种：使用注解提供（明天的内容）
+
+&emsp;&emsp;&emsp;第三种：使用注解提供
 
 #### 构造函数注入
 当创建对象需要注入必要的数据（如创建对象需要初始化的数据）
+
 使用的标签：constructor-arg
+
 标签出现的位置：bean标签的内部
 
 标签中的属性
@@ -247,6 +271,7 @@ IOC的作用：
 -------以上三个用于指定给构造函数中哪个参数赋值------
 
 value：用于提供基本类型和String类型的数据
+
 ref：用于指定其他的bean类型数据。它指的就是在spring的Ioc核心容器中出现过的bean对象
 
 ```xml
@@ -268,9 +293,13 @@ ref：用于指定其他的bean类型数据。它指的就是在spring的Ioc核�
 
 #### set方法注入
 涉及的标签；property
+
 出现的位置：bean标签的内部标签的属性
+
 name：用于指定注入时所调用的set方法名称（名称为set方法去掉set，头字母变为小写）
+
 value：用于提供基本类型和String类型的数据
+
 ref：用于指定其他的bean类型数据。它指的就是在spring的Ioc核心容器中出现过的bean对象
 
 ```xml
@@ -289,12 +318,13 @@ ref：用于指定其他的bean类型数据。它指的就是在spring的Ioc核�
 
 #### 复杂类型的注入/集合类型的注入
 遇到List，Map等集合类型时使用
+
 涉及的标签；property的子标签
 
 用于给List结构集合注入的标签：
 * list array set
 
-用于个Map结构集合注入的标签：
+用于Map结构集合注入的标签：
 * map props
 
 结构相同，标签可以互换，注入的数据会到所在结构中
@@ -360,7 +390,7 @@ ref：用于指定其他的bean类型数据。它指的就是在spring的Ioc核�
         <property name="driverClass" value="com.mysql.jdbc.Driver"></property>
         <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/eesy"></property>
         <property name="user" value="root"></property>
-        <property name="password" value="qaz12345"></property>
+        <property name="password" value="1234"></property>
     </bean>
     
 

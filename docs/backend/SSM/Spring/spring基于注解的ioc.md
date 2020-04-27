@@ -28,8 +28,11 @@ public class AccountServiceImpl implements IAccountService{
 
 #### @Controller @Service @Repository
 以上三个注解他们的作用和属性与component是一模一样。他们三个是spring框架为我们提供明确的三层使用，使我们的三层对象更加清晰
+
 ControlLer：一般用在表现层
+
 Service：一般用在业务层
+
 Repository：一般用在持久层
 
 ### 注入数据
@@ -62,7 +65,9 @@ public class AccountServiceImpl implements IAccountService{
 
 #### @Qualifier
 作用：在**按照类中注入的基础之上再按照名称注入**。它在给类成员注入时不能单独使用,但是在给方法参数注入时可以。
+
 属性：
+
 &emsp;value：用于指定注入bean的id。
 
 ```java
@@ -80,7 +85,9 @@ public class AccountServiceImpl implements IAccountService{
 ```
 #### @Resource 
 作用：直接按照bean的**名称**注入。它可以独立使用属性,需要在Maven中注入jar.annotation
+
 name：用于指定bean的id。
+
 ```java
 @Component
 public class AccountServiceImpl implements IAccountService{
@@ -97,21 +104,27 @@ public class AccountServiceImpl implements IAccountService{
 ```
 
 以上三个注入都只能注入其他bean类型的数据，而基本类型和string类型无法使用上述注解实现。
+
 另外，集合类型的注入只能通过XML来实现。
 
 #### @Value
 作用：用于注入基本类型和String类型的数据
+
 属性：
+
 &emsp;&emsp;value：用于指定数据的值。它可以使用spring中SpEL（也就是spring的el表达式）
+
 SpEL的写法：${表达式}
 
 ### 改变作用范围
 他们的作用就和在bean标签中使用scope属性实现的功能是一样的Scope作用：用于指定bean的作用范围
+
 属性：
+
 value：指定范围的取值。常用取值：singteton prototype
 
 ```java
-@Service(accountService)
+@Service("accountService")
 @Scope("prototype")
 public class AccountServiceImpl implements IAccountService{
     @Resource(name="accountDao1")
@@ -139,25 +152,35 @@ PostConstruct
 #### @Configuration
 
 作用：指定当前类是一个配置类
+
 细节：当配置类作为AnnotationConfigAppLicationContext对象创建的参数时，该注解可以不写。
 
 ####  @ComponentScan
 
 作用：用于通过注解指定spring在创建容器时要扫描的包
+
 属性：
+
 &emsp;&emsp;value：它和basePackages的作用是一样的，都是用于指定创建容器时要扫描的包。
+
 我们使用此注解就等同于在xml中配置了`<context:component-scan base-package="com.itheima"></context:component-scan>`
 
 #### @Bean
 作用：用于把当前方法的返回值作为bean对象存入spring的ioc容器
+
 属性：
+
 &emsp;&emsp;name：用于指定bean的id。当不写时，默认值是当前方法的名称
 细节：
+
 &emsp;&emsp;当我们使用注解配置方法时，如果方法有参数，spring框架会去容器中查找有没有可用的bean对象。
+
 &emsp;&emsp;查找的方式和Autowired注解的作用是一样的（按类型匹配）
 
 示例：
+
 xml文件
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
@@ -238,9 +261,12 @@ IAccountService as = ac.getBean("accountService", IAccountService.class);
 #### @Import
 作用：用于导入其他的配置类到这个类
 属性：
+
 &emsp;value：用于指定其他配置类的字节码。
+
 &emsp;当我们使用Import的注解之后，有Import注解的类就父配置类，而导入的都是子配置类
 如
+
 ```java
 @Configuration
 @ComponentScan({"com.itheima"})
@@ -252,8 +278,11 @@ public class SpringConfig {
 
 #### @PropertySource
 作用：用于指定properties文件的位置（可方便修改某些属性值）
+
 属性：
+
 value：指定文件的名称和路径。
+
 关键字：classpath，表示类路径下
 
 示例
@@ -319,23 +348,27 @@ jdbc.password=1234
 * 当测试方法执行时，没有Ioc容器，就算写了Autowired注解，也无法实现注入
 
 Spring整合junit的配置:
+
 1、导入spring整合junit的jar（注入依赖）
+
 ```xml
 <groupId>orc.springframework</groupId>
 <artifactId>spring-test</artifactId>
 <version></version>
 ```
-2、使用Junit提供的一个汪解把原有的main方法替换了，替换成spring捉供的 **@RuniwLth**
+2、使用Junit提供的一个注解把原有的main方法替换了，替换成spring提供的 **@RuniWith**
+
 3、告知spring的运行器，spring和ioc创建是基于xmL还是注解的，并且说明位置 
+
 **@ContextConfiquration** 
-&emsp;Locations：指定**xml文件**的位置，加上classpath关键宇，表示在类路径下
+
+&emsp;locations：指定**xml文件**的位置，加上classpath关键宇，表示在类路径下
+
 &emsp;classes：指定**注解类**所在地位置
 
 当我们使用spring 5.x版本的时候，要求junit的jar必须是4.12及以上
 
 ```java
-
-
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = SpringConfig.class)
 public class AccountServiceTest {
