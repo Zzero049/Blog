@@ -1,10 +1,14 @@
 ### 传统文件上传
 #### 必要条件
 1. form 表单的 enctype取值必须是：multipart/form-data
-（默认值是：application/x-www-form-urlencoded）
-enctype：是表单请求正文的类型
+
+  （默认值是：application/x-www-form-urlencoded）
+
+  enctype：是表单请求正文的类型
+
 2. method 属性取值必须是Post
-4. 提供一个文件选择域`<input tyge="file"/>`
+
+3. 提供一个文件选择域`<input tyge="file"/>`
 
 当form表单的enctype取值不是默认值后，request.getParameter（）将失效。
 
@@ -14,6 +18,7 @@ key=valueskey=value&key=value当form表单的enctype取值为Mutilpart/form-data
 -----------7de1a433602ac    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;分界符
 Content-Disposition:form-data；name="userName"&emsp;&emsp;&emsp;&emsp;协议头
 pom.xml
+
 ```xml
 <dependency>
       <groupId>commons-fileupload</groupId>
@@ -49,7 +54,7 @@ pom.xml
         for(FileItem item:items){
             //进行判断，当前item对象是否是上传文件项
             if(item.isFormField()){
-                //说明普通表单向
+                //说明普通表单项
 
             }else{
                 //说明上传文件项
@@ -68,23 +73,36 @@ pom.xml
     }
 ```
 ### 跨服务器上传
+
+在实际开发中，我们会有很多处理不同功能的服务器
+
+搭建图片服务器
+
+​	1.根据文档配置tomcat的服务器，现在有两个服务器
+
+​	2.图片服务器使用
+
+​	2.实现SpringMVC跨服务器方式文件上传
+
+![image-20200427170658511](https://gitee.com/zero049/MyNoteImages/raw/master/image-20200427170658511.png)
+
 ```xml
 <dependency>
-<groupId>com.sun.jersey</groupId>
-<artifactId>jersey-core</artifactId>
-<version>1.18.1</version>
+	<groupId>com.sun.jersey</groupId>
+	<artifactId>jersey-core</artifactId>
+	<version>1.18.1</version>
 </dependency>
 <dependency>
-<groupId>com.sun.jersey</groupId>
-<artifactId>jersey-client</artifactId>
-<version>1.18.1</version>
+	<groupId>com.sun.jersey</groupId>
+	<artifactId>jersey-client</artifactId>
+	<version>1.18.1</version>
 </dependency>
 ```
 ```java
  @RequestMapping("/fileUpload2")
-    public String fileUpload2(MultipartFile upload) throws Exception {
+    public String fileUpload2(MultipartFile upload) throws Exception {	//传入MultipartFile对象
         System.out.println("跨服务器上传。。。");
-        //定义上传文件服务器路径
+        //定义上传文件服务器路径,该demo的服务器就是一个文件夹，将图片上传到该路径
         String path="http://1ocalhost:9090/uploads/";
         //获取上传文件的名称
         String filename=upload.getOriginalFilename();

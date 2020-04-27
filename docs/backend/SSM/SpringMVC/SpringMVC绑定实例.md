@@ -59,7 +59,22 @@ public class Account implements Serializable {
 
 ```
 
+Controller
+
+```java
+@Controller
+@RequestMapping("/param")
+public class TestController{
+    @RequestMapping("/saveAccount")
+    public String saveAccount(Account account){	//表单提交的内容默认封装到account里
+        System.out.println(account);
+        return "success";
+    }
+}
+```
+
 jsp文件
+
 ```jsp
  <form action="param/saveAccount" method="post">
         姓名： <input type="text" name="username" /><br/>
