@@ -23,7 +23,7 @@
                 var imgSrc = data.newslist[0].imgurl;
                 var strJson = data.newslist[0].word;
                 var word = strJson.replace(/\n/g,'<br>');
-                var path = '<img src="'+imgSrc+'" style="height:550px;width:900px;"'+'onerror="javascript:this.src=\'https://api.ixiaowai.cn/gqapi/gqapi.php\'; this.onerror = null;"/>';
+                var path = '<img src="'+imgSrc+'" style="height:550px;width:950px;"'+'onerror="javascript:this.src=\'https://api.ixiaowai.cn/gqapi/gqapi.php\'; this.onerror = null;"/>';
                 $("#img").html(path);
                 $("#text").html(word);
                 $("#day").html(data.newslist[0].date)

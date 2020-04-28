@@ -49,15 +49,24 @@ mybatis主配置文件中的常用配置
 可以在标签内部配置连接数据库的信息。也可以通过属性引用外部配置文件信息
 
 属性值
+
 resource属性：常用的
+
 用于指定配置文件的位置，是按照类路径的写法来写，并且必须存在于类路径下。
+
 url属性：
+
 是要求按照Url的写法来写地址
+
 URL:Uniform Resource Locator 统一资源定位符。它是可以唯一标识一个资源的位置。
+
 它的写法：
 http://localhost:8e8e/mybatisserver/demo1Servlet
+
 协议 主机 端口 URI
+
 (URI:Uniform Resource Identifier 统一资源标识符。它是在应用中可以唯一定位一个资源的。)
+
 ```xml
 <properties resource="jdbcConfig.properties">
 ```
@@ -192,10 +201,15 @@ select * from user where id in(41,42,43,46);
 ```
 
 foreach标签用于遍历集合，它的属性：
+
 collection：代表要遍历的集合元素，注意编写时不要写#{}
+
 open：代表语句的开始部分
+
 close：代表结束部分
+
 item：代表遍历集合的每个元素，生成的变量名sperator代表分隔符
+
 ```xml
 <!--queryVo有一个ids列表装的41，42，43，46-->
 <select id="findUserByCondition" resultMap="userMap" parameterType="queryVo">
