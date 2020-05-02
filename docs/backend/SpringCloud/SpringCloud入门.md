@@ -39,7 +39,7 @@
 
 框架对比
 
-![image-20200502200443641](F:\Project\cscode\markdown\java\javaWeb\SpringCloud\pictures\image-20200502200443641.png)
+![image-20200502200443641](https://gitee.com/zero049/MyNoteImages/raw/master/image-20200502200443641.png)
 
 
 
