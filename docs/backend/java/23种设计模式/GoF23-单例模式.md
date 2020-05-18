@@ -34,7 +34,10 @@
 
 
 主要；
-* 饿汉式（线程安全，调用效率高。但是，不能延时加载。）
+### 饿汉式
+
+（线程安全，调用效率高。但是，不能延时加载。） 
+
 ```java
 public class SingletonDemo1 {
     //类初始化时，立即加载
@@ -49,9 +52,14 @@ public  static SingletonDemo1 getInstance(){
 ```
 饿汉式单例模式代码中，static变量云在类装载时初始化，此时也不会涉及多个线程对象访问该对象的问题。虚拟机保证只会装载一次该类，肯定不会发生并发访问的问题。因此，可以省略synchronized关键字。
 
-问题：如果只是加载本类，而不是要调用getinstance()，甚至永远没有调用，则会造成资源浪费！
+问题：如果只是加载本类，而不是要调用getinstance()，甚至永远**没有调用**，则会**浪费空间**！
 
-* 懒汉式（线程安全，调用效率不高。但是，可以延时加载。）
+### 懒汉式
+
+（线程安全，调用效率不高。但是，可以延时加载。）
+
+**synchronized**
+
 ```java
 public class SingletonDemo02 {
     private static SingletonDemo02 s;
@@ -67,30 +75,41 @@ public class SingletonDemo02 {
 }
 
 ```
-资源利用率高了。但是，每次调用getInstance()方法都要同步(考虑到高并发时，多个线程得到cpu都以为没有s对象，会创建多个s对象)，并发效率较低。
+**空间利用率高**了，但是每个线程调用getInstance()都会去获取SingletonDemo02类锁，但实际上只有**当s为空**的时候，**才需要加锁**，因此并发效率很低，因此出现了DCL单例模式。
 
 其他：
-* 双重检测锁式（由于JVM底层内部模型原因，偶尔会出问题。不建议使用）
+### 双重检测锁式DCL
+
+（由于JVM底层内部模型原因，偶尔会出问题。不建议使用）**volatile**禁止指令重排
+
+由于指令重排可能线程A发生 1-》3-》2的顺序，导致线程B进来以为uniqueInstance不为空，但是返回一个未初始化的uniqueInstance（空），而线程A还未执行构造方法
+
 ```java
-public class SingletonDemo03 {
-    private static SingletonDemo03 s=null;
-    private SingletonDemo03(){}
-    public static SingletonDemo03 getInstance(){
-        if(s==null){
-            SingletonDemo03 sc;
-            synchronized (SingletonDemo03.class){
-                sc = s;
-                if(sc==null){
-                    synchronized (SingletonDemo03.class){
-                        if(sc==null){
-                            sc = new SingletonDemo03();
-                        }
-                    }
-                    s = sc;
+public class Singleton {
+
+    private volatile static Singleton uniqueInstance;
+
+    private Singleton() {
+    }
+
+    public static Singleton getUniqueInstance() {
+       //先判断对象是否已经实例过，没有实例化过才进入加锁代码
+        if (uniqueInstance == null) {
+            //类对象加锁
+            
+            synchronized (Singleton.class) {
+                if (uniqueInstance == null) {
+                    /**
+         			* 1.分配内存空间
+         			* 2、执行构造方法，初始化对象
+        		 	* 3、把这个对家指向这个空间
+        		 	* 
+        			 */
+                    uniqueInstance = new Singleton();		//不是原子性操作
                 }
             }
         }
-        return s;
+        return uniqueInstance;
     }
 }
 
@@ -98,7 +117,10 @@ public class SingletonDemo03 {
 
 这个模式将同步内容下方到if内部，提高了执行的效率不必每次获取对象时都进行同步(双重检测)，只有第一次才同步,创建了以后就没必要了。
 
-* 静态内部类式（线程安全，调用效率高。但是，可以延时加载） 
+### 静态内部类式
+
+（线程安全，调用效率高。但是，可以延时加载） 
+
 ```java
 public class SingletonDemo04 {
     private SingletonDemo04(){}
@@ -113,10 +135,17 @@ public class SingletonDemo04 {
 }
 ```
 1. 外部类没有static属性，则不会像饿汉式那样立即加载对象。
+
 2. 只有真正调用getinstance()，才会加载静态内部类。加载类时是线程安全的。instance是static final类型，保证了内存中只有这样一个实例存在，而且只能被赋值一次，从而保证了线程安全性.
+
 3. 兼备了并发高效调用和延迟加载的优势！
 
-* 枚举单例（线程安全，调用效率高，不能延时加载）
+   
+
+### 枚举单例
+
+（线程安全，调用效率高，不能延时加载）
+
 ```java
 public enum SingletonDemo05 {
     //这个枚举元素本身就是一个单例,通过SingletonDemo05.INSTANCE使用
@@ -124,37 +153,166 @@ public enum SingletonDemo05 {
     //添加自己需要的操作
     public void singletonOperation(){
     }
+    //比如
+    public SingletonDemo05 getIntance(){
+        return INSTANCE;
+    }
 }
 ```
 优点是实现简单，枚举本身就是单例模式。由JVM从根本上提供保障！避免通过反射和反序列化的漏洞！缺点是无延时加载。
 
 效率对比：
-<img src="https://gitee.com/zero049/MyNoteImages/raw/master/Annotation 2019-12-07 195435.png"  div align=center />
+
 一般来说选择
 需要加载延迟：静态内部类>懒汉式
 不需要加载延迟：枚举>饿汉
 
+<img src="https://gitee.com/zero049/MyNoteImages/raw/master/Annotation 2019-12-07 200142.png"  div align=center />
 
-##### 漏洞
+
+### 漏洞
 但是，**反射、反序列化可以破解**上面几种（不包含枚举式）实现方式！（可以在构造方法中手动
+
+#### 反射
+
+对于反射，一个对象是获取构造器构造，，另一个是用本身的方法构造
+
+```java
+public class TestDemo {
+    public static void main(String[] args) throws Exception {
+        Constructor<Demo02> constructor = Demo02.class.getDeclaredConstructor();
+        constructor.setAccessible(true);
+        Demo02 test1 = Demo02.getInstance();
+        Demo02 test2 = constructor.newInstance();
+
+        System.out.println(test1);
+        System.out.println(test2);
+    }
+}
+```
+
+![image-20200517123556261](https://gitee.com/zero049/MyNoteImages/raw/master/image-20200517123556261.png)
+
+对于这种情况，可以在对象构造器里面增加一条instance是否为空的判断，不为空则抛出异常</br>
+
+```java
+private Demo02(){
+        synchronized (Demo02.class){
+            if(singleton!=null){
+                throw new RuntimeException("不要试图使用反射破坏异常");
+            }
+        } 
+}
+```
+
+但是还是有问题，懒汉式不调用getInstance()的时候，构造器每次判断singleton==null都是成立的，因此还是能拿到两个对象
 
 
 ```java
 //反射跳过单例
 public static void main(String[] args) throws ClassNotFoundException, NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
-        Class<SingletonDemo02> clazz = (Class<SingletonDemo02>) Class.forName("GOF23.SingletonDemo02");
-        Constructor<SingletonDemo02> co = clazz.getDeclaredConstructor(null);
+        Class<Demo02> clazz = (Class<SingletonDemo02>) Class.forName("GOF23.Demo02");
+        Constructor<Demo02> co = clazz.getDeclaredConstructor(null);
         co.setAccessible(true);
-        SingletonDemo02 s1 = co.newInstance();
-        SingletonDemo02 s2 = co.newInstance();
+    	//用构造方法拿到两个实例，由于这个类初始化
+        Demo02 s1 = co.newInstance(); 	
+        Demo02 s2 = co.newInstance();
 
         System.out.println(s1);
         System.out.println(s2);
     }
 ```
-<img src="https://gitee.com/zero049/MyNoteImages/raw/master/Annotation 2019-12-07 200142.png"  div align=center />
+<img src="https://gitee.com/zero049/MyNoteImages/raw/master/Annotation 2019-12-07 194337.png"  div align=center />
 
-<br>对于这种情况，可以在对象构造器里面增加一条instance是否为空的判断，不为空则抛出异常</br>
+<br>
+
+只要设置一个变量来控制只能执行一次构造函数即可
+
+```java
+private static boolean flag = false;
+
+    /**
+     * 防止反射越过单例模式
+     */
+    private Demo02() {
+        synchronized (Demo02.class) {
+            if (flag == false) {
+                flag = true;
+            }else{
+
+                throw new RuntimeException("不要试图使用反射破坏异常");
+            }
+        }
+    }
+```
+
+![image-20200517124324868](https://gitee.com/zero049/MyNoteImages/raw/master/image-20200517124324868.png)
+
+然鹅，要是我在拿到flag的作用域，再修改还是可以创建两个
+
+```java
+public class TestDemo {
+    public static void main(String[] args) throws Exception {
+        Field flag = Demo02.class.getDeclaredField("flag");
+        flag.setAccessible(true);
+
+        Constructor<Demo02> constructor = Demo02.class.getDeclaredConstructor();
+        constructor.setAccessible(true);
+
+        Demo02 instance1 = Demo02.getInstance();
+        flag.set(instance1,false);
+        Demo02 instance2 = constructor.newInstance();
+
+        System.out.println(instance1);
+        System.out.println(instance2);
+    }
+}
+```
+
+可以看到newInstance源码，判断反射对象如果是枚举类，则抛出异常，我们可以通过枚举去实现反射破坏单例
+
+![image-20200517124956389](https://gitee.com/zero049/MyNoteImages/raw/master/image-20200517124956389.png)
+
+**结论：前四种单例模式都会被反射破解**，若想不破坏单例，则需要用枚举类，抛出NoSuchMethodException，不是我们在源码看到的Cannot reflectively create enum objects
+
+```java
+public class TestDemo2 {
+    public static void main(String[] args) throws Exception {
+
+        Constructor<Demo05> constructor = Demo05.class.getDeclaredConstructor();
+        constructor.setAccessible(true);
+
+        Demo05 instance1 = constructor.newInstance();
+
+        Demo05 instance2 = constructor.newInstance();
+
+        System.out.println(instance1);
+        System.out.println(instance2);
+    }
+}
+```
+
+![image-20200517131355482](https://gitee.com/zero049/MyNoteImages/raw/master/image-20200517131355482.png)
+
+至于原因
+
+无论是javap查看class文件还是在target查看 **都可以看到无参构造**，Demo05都是有空参构造的，用**jad工具**，将class反编译回java文件，**看到是没有无参构造器**的！
+
+![image-20200517132008176](https://gitee.com/zero049/MyNoteImages/raw/master/image-20200517132008176.png)
+
+那我们测试用这个构造器是否能够绕开单例
+
+```java
+Constructor<Demo05> constructor = Demo05.class.getDeclaredConstructor(String.class,int.class);
+```
+
+![image-20200517132203097](https://gitee.com/zero049/MyNoteImages/raw/master/image-20200517132203097.png)
+
+至此我们彻底知道了Enum是可以防止反射破坏单例的
+
+#### 反序列化（TODO）
+
+反序列化跳过单例：
 
 
 ```java
@@ -176,7 +334,7 @@ public static void main(String[] args) throws IOException, ClassNotFoundExceptio
     }
 ```
 
-<img src="https://gitee.com/zero049/MyNoteImages/raw/master/Annotation 2019-12-07 194337.png"  div align=center />
+
 
 对于反序列化的漏洞，可以通过在单例类中定义readResolve()防止获得不同对象。
 （反序列化时，如果对象所在类定义了readResolve()，（实际是一种回调），定义返回哪个对象。 ）

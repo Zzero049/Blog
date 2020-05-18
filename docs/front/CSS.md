@@ -19,7 +19,7 @@ CSS是“层叠样式表单”。是用于（增强）控制网页样式并允�
 在标签的 style 属性上设置"key:value value；"，修改标签样式。
 
 ```html
-xxxxxxxxxx <div style="border: brown solid 2px ">lalala</div>html
+ <div style="border: brown solid 2px ">lalala</div>
 ```
 
 把css样式写戴一个单独的css文件，再通过limk标签引入即可复用。把css样式写戴一个单独的css文件，再通过limk标签引入即可复用。然而这样会出现问题：
