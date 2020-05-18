@@ -52,7 +52,7 @@ unlock tables;
 ```
 
 
-<img src="./pictures/Annotation 2019-12-25 175021.png"  div align=center />
+![image-20200514181721970](https://gitee.com/zero049/MyNoteImages/raw/master/image-20200514181721970.png)
 
 
 **<br>加入读锁**
@@ -76,7 +76,7 @@ unlock tables;
 ```sql
 show status like 'table%';
 ```
-<img src="./pictures/Annotation 2019-12-25 193705.png"  div align=center />
+![image-20200514181748826](https://gitee.com/zero049/MyNoteImages/raw/master/image-20200514181748826.png)
 
 这里有两个状态变量记录MySQL内部表级锁定的情况，两个变量说明如下：
 
@@ -115,7 +115,7 @@ update innodb_lock set a=2 where b=500;
 例子：
 
 假如有2个事务，事务1当a>1 and a<6修改b（注意a没有2），事务2，插入一条a为2的数据，此时事务2会等待事务1提交才执行。
-<img src="./pictures/Annotation 2019-12-25 202041.png"  div align=center />
+![image-20200514181815526](https://gitee.com/zero049/MyNoteImages/raw/master/image-20200514181815526.png)
 
 因为Query执行过程中通过过范围查找的话，他会锁定整个范围内所有的索引键值，即使这个键值并不存在
 间隙锁有一个比较致命的弱点，就是当锁定一个范围键值之后，即使某些不存在的键值也会被无辜的锁定，而造成在锁定的时候无法插入锁定键值范围内的任何数据。在某些场景下这可能会对性能造成很大的危害

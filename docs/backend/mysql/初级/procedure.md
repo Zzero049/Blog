@@ -13,7 +13,6 @@
 1. 简化应用开发人员的很多工作
 2. 减少数据在数据库和应用服务器之间的传输
 3. 提高了数据处理的效率
-4. 
 
 一组预先编译好的SQL语句的集合，理解成批处理语句
 
@@ -35,7 +34,7 @@ END
 - 参数名
 - 参数类型
 
-> 例：in stuname varchar(20)
+> 例： stuname varchar(in 20)
 
 
 
@@ -122,7 +121,9 @@ BEGIN
 END $
 ```
 
+返回一个
 
+![image-20200518165226661](https://gitee.com/zero049/MyNoteImages/raw/master/image-20200518165226661.png)
 
 ``` mysql
 CALL myp3('john','8888');
@@ -196,6 +197,37 @@ SET @n=20;
 CALL myp5(@m,@n);
 SELECT @m,@n;
 ```
+
+MySQL的@与@@区别
+
+@x 是 **用户**自定义的变量 (User variables are written as @var_name)
+
+@@x 是 global或session变量 (@@global @@session )
+
+  
+
+**@@查看全局变量:**
+
+select  @@log_error;
+
+ 
+
+**@设置全局变量值:**
+
+```sql
+SET @t1=0, @t2=0, @t3=0;
+
+SELECT @t1:=(@t2:=1)+@t3:=4,@t1,@t2,@t3;
+```
+
+**:= 和 = 的区别**
+
+- =
+  - 只有在set和update时才是和:=一样，**赋值**的作用，其它都是**等于**的作用。鉴于此，用变量实现行号时，必须用:=
+- :=
+  - 不只在set和update时时赋值的作用，在select也是赋值的作用。
+
+
 
 
 

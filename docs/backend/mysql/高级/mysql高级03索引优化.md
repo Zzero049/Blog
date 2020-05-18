@@ -312,14 +312,14 @@ ALTER TABLE tbl_name ADD FULLTEXT index name(column list);
 4. **type**
 显示表查询属于哪种类型，常用的有以下八个值:
    
-5. | ALL  | index | index | ref  | eq_ref | const | system | NULL |
-  | ---- | ----- | ----- | ---- | ------ | ----- | ------ | ---- |
-  |      |       |       |      |        |       |        |      |
-
+   | ALL  | index | range | ref  | eq_ref | const | system | NULL |
+   | ---- | ----- | ----- | ---- | ------ | ----- | ------ | ---- |
+   |      |       |       |      |        |       |        |      |
+   
    从最好到最差依次是:
-  system>const>eq_ref>ref>range>index>ALL
-  一般来说，得保证查询至少达到range级别，最好能达到ref。
-
+     system>const>eq_ref>ref>range>index>ALL
+     一般来说，得保证查询至少达到range级别，最好能达到ref。
+   
    - **system**
    表只有一行记录（等于系统表），这是const类型的特例，平时一般不会出现。
    - **const**
@@ -334,54 +334,54 @@ ALTER TABLE tbl_name ADD FULLTEXT index name(column list);
    Full Index Scan，index与ALL区别为index类型只遍历索引树。这通常比ALL快，因为索引文件通常比数据文件小（也就是说虽然all和Index都是读全表但index是从索引中读取的，而all是从硬盘中读的）
    - **all** 
    Full Table Scan，将遍历全表以找到匹配的行
+   
+5. possible_keys
+     显示可能应用在这张表中的索引，一个或多个。
+       查询涉及到的字段上若存在索引，则该索引将被列出，**但不一定被查询实际使用**
 
-6. possible_keys
-  显示可能应用在这张表中的索引，一个或多个。
-  查询涉及到的字段上若存在索引，则该索引将被列出，**但不一定被查询实际使用**
+6. **key**
+     实际使用的索引。如果为NULL，则没有使用索引查询中
+       <span style='color:red'>若使用了覆盖索引，则该索引仅出现在key列表中<span>
 
-7. **key**
-  实际使用的索引。如果为NULL，则没有使用索引查询中
-  <span style='color:red'>若使用了覆盖索引，则该索引仅出现在key列表中<span>
-
-8. key_len
+7. key_len
     - 表示索引中使用的字节数，可通过该列计算查询中使用的索引的长度。在不损失精确性的情况下，长度越短越好
     - key_len显示的值为索字段的**最大可能长度，并非实际使用长度**，即key_len是根据表定义计算而得，不是通过表内检索出的
 
-9. ref
-  显示索引的哪一列被使用了，如果可能的话，是一个常数。哪些列或常量被用于查找索引列上的值(注意与type的ref区别)，常见的值有const，某数据库某表的某字段。
+8. ref
+     显示索引的哪一列被使用了，如果可能的话，是一个常数。哪些列或常量被用于查找索引列上的值(注意与type的ref区别)，常见的值有const，某数据库某表的某字段。
 
-10. **rows**
-  根据表统计信息及索引选用情况，大致估算出找到所需的记录所需要读取的行数（越小越好）
+9. **rows**
+       根据表统计信息及索引选用情况，大致估算出找到所需的记录所需要读取的行数（越小越好）
 
-11. **extra**
-     包含不适合在其他列中显示但十分重要的额外信息
-      - **Using filesort**
-         - 说明mysql会对数据使用一个外部的索引排序，而不是按照表内的索引顺序进行读取。（慢,尽快优化）
-         - MySQL中无法利用索引完成的排序操作称为“文件排序”
+10. **extra**
+      包含不适合在其他列中显示但十分重要的额外信息
+       - **Using filesort**
+          - 说明mysql会对数据使用一个外部的索引排序，而不是按照表内的索引顺序进行读取。（慢,尽快优化）
+          - MySQL中无法利用索引完成的排序操作称为“文件排序”
 
-     - **Using temporary**
-     使了用临时表保存中间结果，MySQL在对查询结果排序时使用临时表。常见于排序order by和分组查询 group by。（更加慢，尽量保持索引和group by顺序相同）
+      - **Using temporary**
+        使了用临时表保存中间结果，MySQL在对查询结果排序时使用临时表。常见于排序order by和分组查询 group by。（更加慢，尽量保持索引和group by顺序相同）
 
-     - **Using index**
-         - 表示相应的select操作中使用了覆盖索引（Covering Index），避免访问了表的数据行，效率不错！
-         - 如果同时出现using where，表明索引被用来执行索引键值的查找；
-         - 如果没有同时出现using where，表明索引用来直接读取数据而不执行查找动作。
-         - **覆盖索引**
-         select的数据列只用从索引中就能够取得，不必读取数据行，MySQL可以利用索引返回select列表中的字段，而不必根据索引再次读取数据文件，换句话说查询列要被所建的索引覆盖。
+      - **Using index**
+          - 表示相应的select操作中使用了覆盖索引（Covering Index），避免访问了表的数据行，效率不错！
+          - 如果同时出现using where，表明索引被用来执行索引键值的查找；
+          - 如果没有同时出现using where，表明索引用来直接读取数据而不执行查找动作。
+          - **覆盖索引**
+          select的数据列只用从索引中就能够取得，不必读取数据行，MySQL可以利用索引返回select列表中的字段，而不必根据索引再次读取数据文件，换句话说查询列要被所建的索引覆盖。
 
-     - Using where
-     表明使用了Where过滤
+      - Using where
+        表明使用了Where过滤
 
-     - Using join buffer
-     使用了连接缓存
+      - Using join buffer
+        使用了连接缓存
 
-     - impossible where
-     where子句的值总是false的，不可能从where中获得元组
+      - impossible where
+        where子句的值总是false的，不可能从where中获得元组
 
-     - select table optimized away
-     在没有GROUPBY子句的情况下，基手索引优化MIN/MAX操作或者对于MyISAM存储引擎优COUNT（*）操作，不必等到执行阶段再进行计算，查询执行计划生成的阶段即完成优化。
-     - distinct
-     优化distinct操作，在找到第一匹配的元组后即停止找同样值的动作
+      - select table optimized away
+        在没有GROUPBY子句的情况下，基手索引优化MIN/MAX操作或者对于MyISAM存储引擎优COUNT（*）操作，不必等到执行阶段再进行计算，查询执行计划生成的阶段即完成优化。
+      - distinct
+        优化distinct操作，在找到第一匹配的元组后即停止找同样值的动作
 
 ## 示例
 ### 单表优化
@@ -526,23 +526,30 @@ ALTER TABLE staffs ADD INDEX idx_staffs_nameAgePos(NAME,age,pos);
 
 失效原因:
 1. 全值匹配select *
+
 2. 最佳左前缀法则
-    如果索引了多列，要遵守最左前缀法则。指的是查询从索引的最左前列开始并且不跳过索引中的列。例子：
+    如果索引了多列，要遵守最左前缀法则。指的是查询从索引的最左前列开始并且不跳过索引中的列（如果都出现了，不按顺序且不是范围查询，mysql会自动优化，执行索引）。例子：
+    
     ```sql
     # 索引用不上 type 变成all
     EXPLAIN SELECT* FROM staffs WHERE age=23 AND pos='dev';
-    EXPLAIN SELECT* FROM staffs WHERE  pos='dev';
-
+EXPLAIN SELECT* FROM staffs WHERE  pos='dev';
+    
     # 索引用上了，但只用上了name字段的索引ref只有一个const
     EXPLAIN SELECT* FROM staffs WHERE  name = 'July' and pos='dev';
     ```
+    
+    ![image-20200514182406122](https://gitee.com/zero049/MyNoteImages/raw/master/image-20200514182406122.png)
+    
 3. 不在索引列上做任何操作（计算、函数、（自动or手动）类型转换），会导致索引失效而转向全表扫描，例子：
+
     ```sql
     # 索引用上了
     EXPLAIN SELECT * FROM staffs WHERE NAME='July';
     # 索引没用上，left函数类似substr
     EXPLAIN SELECT * FROM staffs WHERE LEFT(NAME,4)='July';
     ```
+
 4. 存储引擎不能使用索引中范围条件右边的列
     ```sql
     # 索引成功使用
@@ -552,6 +559,7 @@ ALTER TABLE staffs ADD INDEX idx_staffs_nameAgePos(NAME,age,pos);
     EXPLAIN SELECT * FROM staffs 
     WHERE NAME='July' AND age>25 AND pos='manageer';
     ```
+
 5. 尽量使用覆盖索引（只访问索引的查询（索引列和查询列一致）），减少select *
     ```sql
     EXPLAIN SELECT * FROM staffs 
@@ -560,13 +568,16 @@ ALTER TABLE staffs ADD INDEX idx_staffs_nameAgePos(NAME,age,pos);
     EXPLAIN SELECT name,age,pos FROM staffs 
     WHERE NAME='July' AND age=25 AND pos='manageer';
     ```
+
 6. mysql在使用不等于（！=或者<>）的时候无法使用索引会导致全表扫描
     ```sql
     #type为ALL，key为NULL
     EXPLAIN SELECT name,age,pos FROM staffs 
     WHERE NAME!='July';
     ```
+
 7. is null，is not null 也无法使用索引
+
 8. like以通配符开头（%abc...）mysql索引失效会变成全表扫描的操作
     ```sql
     # %July,%July%为全表扫描，而July% type为range
@@ -577,6 +588,7 @@ ALTER TABLE staffs ADD INDEX idx_staffs_nameAgePos(NAME,age,pos);
     EXPLAIN SELECT age,pos FROM staffs 
     WHERE NAME like '%July%';
     ```
+
 9. 字符串不加单引号索引失效
     ```sql
     # 正常
@@ -586,6 +598,7 @@ ALTER TABLE staffs ADD INDEX idx_staffs_nameAgePos(NAME,age,pos);
     EXPLAIN SELECT age,pos FROM staffs 
     WHERE NAME = 2000;
     ```
+
 10. 少用or，用它来连接时会索引失效
     ```sql
     # 索引失效
