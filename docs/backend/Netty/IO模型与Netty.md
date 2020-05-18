@@ -172,7 +172,7 @@ New I/O：channel、ByteBuffer、selector
 
 这种多路复用下，只需要O(1)次调用select去监听accept事件和 I/O状态，知道了有I/O事件发生了，却并不知道是哪那些个文件描述符，我们只能无差别轮询所有文件描述符fd，找出能读出数据，或者写入数据的文件描述符fd，对他们进行操作。所以select具有O(n)的无差别轮询复杂度，同时处理的文件描述符fd越多，无差别轮询时间就越长
 
-![image-20200514122421744](H:\Desktop\新建文件夹\Blog\docs\backend\Netty\pictures\image-20200514122421744.png)
+![image-20200514122421744](https://gitee.com/zero049/MyNoteImages/raw/master/image-20200514122421744.png)
 
 缺点：
 
@@ -190,7 +190,7 @@ New I/O：channel、ByteBuffer、selector
 
 epoll提供了三个函数解决poll和select的三个缺点，epoll_create,epoll_ctl和epoll_wait，epoll_create是创建一个epoll句柄；epoll_ctl是注册要监听的事件类型；epoll_wait则是等待事件的产生。
 
-![image-20200514122738709](H:\Desktop\新建文件夹\Blog\docs\backend\Netty\pictures\image-20200514122738709.png)
+![image-20200514122738709](https://gitee.com/zero049/MyNoteImages/raw/master/image-20200514122738709.png)
 
 对于第一个缺点，epoll的解决方案在epoll_ctl函数中。每次注册新的事件到epoll句柄中时（在epoll_ctl中指定EPOLL_CTL_ADD），会把所有的fd拷贝进内核，而不是在epoll_wait的时候重复拷贝。epoll保证了每个fd在整个过程中只会拷贝一次。
 
