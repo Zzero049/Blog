@@ -2,7 +2,7 @@
 
 1. 标签的格式：
    	<标签名>封装的数据</标签名>
-   	
+   
 2. 标签名大小写不敏感。
 
 3. 标签拥有自己的属性。
@@ -37,7 +37,7 @@
 
 ## 常用标签
 
-#### font
+### font
 
 font标签是字体标签，宫可以用来修改文本的字体，颜色，大小（尺寸）
 
@@ -51,7 +51,7 @@ size属性修改文本大小
 
 
 
-#### 常用的特殊字符
+### 常用的特殊字符
 
 常用的特殊字符：
 
@@ -63,7 +63,7 @@ size属性修改文本大小
 
 
 
-#### 标题标签
+### 标题标签
 
 h1-h6 都是标题标金
 h1最大
@@ -79,7 +79,7 @@ h6最小
 
 
 
-#### 超链接
+### 超链接
 
 a标签是超链接
 
@@ -95,7 +95,7 @@ a标签是超链接
 
 
 
-#### 列表标签
+### 列表标签
 
 ul是无序列表，ol为有序列表
 	type属性可以修改无序列表项前面的符号
@@ -111,7 +111,7 @@ Li是列表项
 
 
 
-#### <font color="red">img标签</font>
+### <font color="red">img标签</font>
 
 img标签是图片标签，用来显示图片
 
@@ -140,7 +140,7 @@ img标签是图片标签，用来显示图片
 
 
 
-#### <font color="red">table表格</font>
+### <font color="red">table表格</font>
 
 table标签是表格标签
 		border 设置表格标签
@@ -175,7 +175,7 @@ td 是单元格标签
 
 
 
-#### iframe
+### iframe内联页面
 
 ifarme标签可以在页面上开辟一个小区域显示一个单独的页面
 
@@ -184,14 +184,19 @@ ifarme和a标签组合使用的步骤：
 	2.在a标签的target属性上设置iframe的name的属性值
 
 ```html
-<iframe src="0-测试.html" width="300" height="400" name="abc"></iframe>
+<body>
 
-<a href="0-测试.html" target="abc">测试</a>
+<iframe src="https://zzero049.github.io/Blog/#/" width="300" height="400" name="abc"></iframe>
+
+<a href="https://github.com/" target="abc">测试</a>
+</body>
 ```
 
+![image-20200524111212226](https://gitee.com/zero049/MyNoteImages/raw/master/image-20200524111212226.png)
 
+![image-20200524111225212](https://gitee.com/zero049/MyNoteImages/raw/master/image-20200524111225212.png)
 
-#### <font color="red">表单form</font>
+### <font color="red">表单form</font>
 
 form标签就是表单
 
@@ -201,7 +206,7 @@ form标签就是表单
   -  value设置默认显示内容
 - input type=radio 是单选框      
   - name属性可以对其进行分组checked="checked”表示默认选中
-- input type=checkbox 是复选框 
+- input type=checkbox 是多选框 
   - checked="checked“表示默认选中
 - input type=reset 是重置按钮
   - value属性修改按钮上的文本
@@ -210,8 +215,12 @@ form标签就是表单
 - input type=button 是按钮
   - value属性修改按钮上的文本
 - input type=file是文件上传域
-- inputtype=hidden 是隐藏域
+- input type=hidden 是隐藏域
   - 当我们要发送某些信息，而这些信息，不需要用户参与，就可以使用隐藏域（提交的时候同时发送给服务器）
+- input type=email 是基本的邮箱验证
+- input type=url 是基本的url验证
+- input type=range 是滑块
+- input type=serach 是搜索框
 - select 标签是下拉列表框
   - option标签是下拉列表框中的选项selected="selected“设置默认选中
 - textarea表示多行文本输入框（起始标签和结束标签中的内容是默认值）
@@ -222,24 +231,35 @@ form标签就是表单
 
 ```html
 <form action="" method="POST">
-    用户名: <input type="text"/><br/>
-    用户密码: <input type="password"/><br/>
-    确认密码: <input type="password"/><br/>
-    性别: <input type="radio" name="sex" checked="checked"/>男<input type="radio" name="sex"/>女<br/>
-    兴趣爱好：<input type="checkbox" checked="checked"/>java<input type="checkbox" />python<input type="checkbox" />c++<br/>
-    国籍：<select>
-            <option>---请输入国籍---</option>
-            <option>---中国---</option>
-            <option>---美国---</option>
-        </select><br/>
-    自我评价：<textarea rows="10" cols="20">我才是默认值</textarea><br/>
-    <input type="reset" value="重置"/>
-    <input type="submit" value="提交"/>
-    <input type="button" value="一个小按钮"/>
-</form>
+        用户名: <input type="text"/><br/>
+        用户密码: <input type="password"/><br/>
+        确认密码: <input type="password"/><br/>
+
+        性别: <input type="radio" name="sex" checked="checked"/>男<input type="radio" name="sex"/>女<br/>
+
+        兴趣爱好：<input type="checkbox" checked="checked"/>java<input type="checkbox" />python<input type="checkbox" />c++<br/>
+
+        国籍：<select>
+        <option>---请输入国籍---</option>
+        <option>---中国---</option>
+        <option>---美国---</option>
+    </select><br/>
+
+        自我评价：<textarea rows="10" cols="20">我才是默认值</textarea><br/>
+
+        <p>
+            搜索：<input type="search" name="搜索">
+        </p>
+        滑块: <input type="range" min="10" max="100" step="2">
+
+
+        <input type="reset" value="重置"/>
+        <input type="submit" value="提交"/>
+        <input type="button" value="一个小按钮"/>
+    </form>
 ```
 
-![image-20200420170824728](https://gitee.com/zero049/MyNoteImages/raw/master/image-20200420171303746.png)
+![image-20200524105709864](https://gitee.com/zero049/MyNoteImages/raw/master/image-20200524105709864.png)
 
 可以看出相当不美观，可以结合表格进行优化
 
@@ -323,38 +343,147 @@ form标签就是表单
 </form>
 ```
 
+![image-20200420170824728](https://gitee.com/zero049/MyNoteImages/raw/master/image-20200420171303746.png)
 
 
-![image-20200420171303746](https://gitee.com/zero049/MyNoteImages/raw/master/image-20200420170824728.png)
 
 注意上面的标签中没有name属性，无论是POST请求还是GET请求都不会带有其中的数据
 
+#### 表单属性限制
+
+1. 只读，加上readonly属性
+
+```html
+<form action="" method="POST">
+    用户名: <input type="text" value="张三" readonly/>
+    
+</form>
+```
+
+![image-20200524105857105](https://gitee.com/zero049/MyNoteImages/raw/master/image-20200524105857105.png)
 
 
-表单提交的时候，数据没有发送给服务器的三种情况：
 
-​	1、表单项没有name属性值
-​	2、单选、复选（下拉列表中的option标签）没有添加value属性，服务器接受到的是on或off
-​	3、表单项不在提交的form标签中（input、select、textarea）
+2. checkbox、radio禁选，加上disabled
+
+```html
+<form action="" method="POST">
+        你最喜欢:
+        <input type="checkbox" value="eat" name="hobby"> 吃饭
+        <input type="checkbox" value="sleep" name="hobby"> 睡觉
+        <input type="checkbox" value="punch" name="hobby" disabled> 打豆豆
+
+    </form>
+```
 
 
 
-GET请求的特点是：
-	1、浏览器地址栏中的地址是：?+请求参数
-				请求参数的格式是：name=value&name=value
-	2、不安全（请求参数可以看到）
-	3、它有数据长度的限制
+![image-20200524110339815](https://gitee.com/zero049/MyNoteImages/raw/master/image-20200524110339815.png)
 
-POST请求的特点是：
-	1、浏览器地址栏中只有隐藏域属性值
-	2、相对于GET请求要安全
-	3、理论上没有数据长度的限制
+3、hidden 隐藏域 隐藏一些信息不给用户看到
 
-#### div、span、p标签
+```html
+<form action="" method="get">
+    用户名: <input type="text" name="name"/><br/>
+    用户密码: <input type="password" name="password" value="zansan" hidden/><br/>
+    确认密码: <input type="password" name="rePassword" value="zansan"hidden/><br/>
+    <input type="submit" value="提交">
+</form>
+```
+
+![image-20200524111911385](https://gitee.com/zero049/MyNoteImages/raw/master/image-20200524111911385.png)
+
+4、 label增加鼠标可用性，点击label的文本会跳转到for指向的id
+
+```html
+<form action="" method="get">
+    用户名: <input type="text" name="name" id="mark"/><br/>
+    用户密码: <input type="password" name="password" /><br/>
+    确认密码: <input type="password" name="rePassword" /><br/>
+<!--    指向mark标记-->
+    <label for="mark">指向用户名</label>
+</form>
+```
+
+
+
+
+
+![image-20200524112254674](https://gitee.com/zero049/MyNoteImages/raw/master/image-20200524112254674.png)
+
+#### 表单初级验证
+
+1、placeholder 提示信息
+
+```html
+<form action="" method="get">
+    用户名: <input type="text" name="name" placeholder="请输入用户名"/><br/>
+    用户密码: <input type="password" name="password" placeholder="请输入密码"/><br/>
+
+</form>
+```
+
+
+
+![image-20200524112627129](https://gitee.com/zero049/MyNoteImages/raw/master/image-20200524112627129.png)
+
+2、required  非空判断
+
+```html
+<form action="" method="get">
+    用户名: <input type="text" name="name" placeholder="请输入用户名" required/><br/>
+    用户密码: <input type="password" name="password" placeholder="请输入密码"/><br/>
+    <input type="submit" value="提交">
+</form>
+```
+
+![image-20200524112754830](https://gitee.com/zero049/MyNoteImages/raw/master/image-20200524112754830.png)
+
+3、pattern 正则表达式判断
+
+```html
+<form action="" method="get">
+    邮箱： <input type="text" pattern="^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$">
+    <input type="submit" value="提交">
+</form>
+```
+
+
+
+![image-20200524113108764](https://gitee.com/zero049/MyNoteImages/raw/master/image-20200524113108764.png)
+
+4、密码隐藏
+
+```html
+<form action="#" method="post">
+<p>
+    <!--还需要进行操作，由于表单不含name，可以进一步结合js用md5修改-->
+    <span>密码：</span><input  type="password" id="input-password">
+    <input type="hidden" id="md5-password" name="password">
+    <input type="submit" value="提交">
+</p>
+</form>
+```
+
+
+
+#### 表单提交的时候，数据没有发送给服务器的三种情况：
+
+​	1、表单项没有**name**属性值
+
+​	2、单选、复选（下拉列表中的option标签）没有添加**value**属性，服务器接受到的是on或off
+
+​	3、表单项不在提交的**form**标签中（input、select、textarea）
+
+
+
+### div、span、p标签
 
 div标签默认独占一行
 
 span标签它的长度是封装数据的长度
 
 p段落标签默认会在段落的上方和下方各空出一行来（如果已有就不再空）
+
+
 
