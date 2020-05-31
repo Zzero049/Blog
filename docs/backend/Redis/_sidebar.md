@@ -12,7 +12,7 @@
   - [Redis缓存问题](backend/Redis/Redis缓存问题.md)
 - 扩展
   - [Mysql处理高并发策略](backend/Redis/Mysql处理高并发.md)
-  - [Redis与C++字符串类型区别](backend/Redis/Redis的SDS与Cpp的String类.md)
+  - [Redis的SDS与Cpp的String类](backend/Redis/Redis的SDS与Cpp的String类.md)
   - [Redis的单线程和多线程](backend/Redis/Redis的单线程和多线程.md)
   - [Redis开启远程连接](backend/Redis/Redis开启远程连接.md)
 

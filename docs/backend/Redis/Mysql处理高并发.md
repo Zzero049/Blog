@@ -1,6 +1,6 @@
 mysql高并发的解决方法有：优化SQL语句，优化数据库字段，加缓存，分区表，读写分离以及垂直拆分，解耦模块，水平切分等。
 
-![mysql如何处理高并发](H:\Desktop\新建文件夹\Blog\docs\backend\Redis\pictures\876f728362b84ef09ade6ccdd80c6b4d)
+
 
  
 
