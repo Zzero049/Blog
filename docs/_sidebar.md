@@ -6,6 +6,7 @@
   - [SpringCloud](backend/SpringCloud/_sidebar.md)
   - [mysql初级](backend/mysql/初级/_sidebar.md)
   - [mysql高级](backend/mysql/高级/_sidebar.md)
+  - [Redis](backend/Redis/_sidebar.md)
 - **前端**
   - [前端入门](front/前端入门.md)
   - [HTML](front/HTML.md)
