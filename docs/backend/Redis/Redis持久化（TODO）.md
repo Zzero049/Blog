@@ -116,7 +116,7 @@ OK
 
 除了 Redis 的配置文件可以对快照的间隔进行设置之外，Redis 客户端还同时提供两个命令来生成 RDB 存储文件，也就是 `SAVE` 和 `BGSAVE`，通过命令的名字我们就能猜出这两个命令的区别。
 
-![save-and-bgsave](https://gitee.com/zero049/MyNoteImages/raw/master/aHR0cHM6Ly9pbWcuZHJhdmVuZXNzLm1lL3NhdmUtYW5kLWJnc2F2ZS5wbmc)
+![image-20200531130705192](https://gitee.com/zero049/MyNoteImages/raw/master/image-20200531130705192.png)
 
 其中 `SAVE` 命令在执行时会直接阻塞当前的线程，由于 Redis 是**单线程**的，所以 `SAVE` 命令会直接阻塞来自客户端的所有其他请求，这在很多时候对于需要提供较强可用性保证的 Redis 服务都是无法接受的。
 
