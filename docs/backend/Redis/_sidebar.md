@@ -10,7 +10,7 @@
   - [Redis发布订阅](backend/Redis/Redis发布订阅.md)
   - [Redis主从复制](backend/Redis/Redis主从复制.md)
   - [Redis缓存问题](backend/Redis/Redis缓存问题.md)
-  - [NoSql概述](backend/Redis/Nosql概述.md)
+
 - 扩展
   - [Mysql处理高并发策略](backend/Redis/Mysql处理高并发.md)
   - [Redis与C++字符串类型区别](backend/Redis/Redis SDS与CppString类.md)
