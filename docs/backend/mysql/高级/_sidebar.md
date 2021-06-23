@@ -1,10 +1,17 @@
 ---
-- [返回上一级](_sidebar.md)
+- [返回上一级](_sidebar.md) 
 ---
-- mysql高级
-  - [mysql架构](backend/mysql/高级/mysql高级01简介.md)
-  - [索引优化](backend/mysql/高级/mysql高级03索引优化.md)
-  - [索引优化分析题](backend/mysql/高级/mysql高级04索引优化分析题.md)
-  - [查询截取分析](backend/mysql/高级/mysql高级05查询截取分析.md)
-  - [锁机制](backend/mysql/高级/mysql高级06锁机制.md)
-  - [主从复制](backend/mysql/高级/mysql高级07主从复制.md)
+- 高级
+	 - [01简介.md](backend/mysql/高级/01简介.md)
+	 - [02架构.md](backend/mysql/高级/02架构.md)
+	 - [03索引.md](backend/mysql/高级/03索引.md)
+	 - [04索引优化.md](backend/mysql/高级/04索引优化.md)
+	 - [05索引优化分析题.md](backend/mysql/高级/05索引优化分析题.md)
+	 - [06查询截取分析.md](backend/mysql/高级/06查询截取分析.md)
+	 - [07锁机制.md](backend/mysql/高级/07锁机制.md)
+	 - [08主从复制.md](backend/mysql/高级/08主从复制.md)
+	 - [B+树索引和hash索引的区别.md](backend/mysql/高级/B+树索引和hash索引的区别.md)
+	 - [MyISAM和InnoDB存储引擎.md](backend/mysql/高级/MyISAM和InnoDB存储引擎.md)
+	 - [sql执行顺序.md](backend/mysql/高级/sql执行顺序.md)
+	 - [聚集索引、非聚集索引、覆盖索引.md](backend/mysql/高级/聚集索引、非聚集索引、覆盖索引.md)
+	 - [面试：索引.md](backend/mysql/高级/面试：索引.md)

@@ -1,11 +1,8 @@
 ---
-- [返回上一级](_sidebar.md)
+- [返回上一级](_sidebar.md) 
 ---
-- SSM框架
-
-  - [Spring](backend/SSM/Spring/_sidebar.md)
-  - [SpringMVC](backend/SSM/SpringMVC/_sidebar.md)
-  - [Mybatis](backend/SSM/Mybatis/_sidebar.md)
-  - [Maven证书以及创建过慢问题](backend/SSM/maven安装证书问题.md)
-  
-  
+- SSM
+	 - [Mybatis](backend/SSM/Mybatis/_sidebar.md)
+	 - [Spring](backend/SSM/Spring/_sidebar.md)
+	 - [SpringMVC](backend/SSM/SpringMVC/_sidebar.md)
+	 - [SSM疑难点](backend/SSM/SSM疑难点/_sidebar.md)

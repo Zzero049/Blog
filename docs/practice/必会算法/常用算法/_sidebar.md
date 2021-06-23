@@ -1,0 +1,7 @@
+---
+- [返回上一级](_sidebar.md) 
+---
+- 常用算法
+	 - [LRU.md](practice/必会算法/常用算法/LRU.md)
+	 - [pow.md](practice/必会算法/常用算法/pow.md)
+	 - [大数相加.md](practice/必会算法/常用算法/大数相加.md)

@@ -2,5 +2,5 @@
 
 # Zero的笔记 <small>2020</small>
 
-[View](README.md)
+[View](beginning.md)
 

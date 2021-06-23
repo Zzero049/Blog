@@ -1,18 +1,17 @@
 ---
-- [返回上一级](_sidebar.md)
+- [返回上一级](_sidebar.md) 
 ---
-- 基础
-  - [NoSql概述](backend/Redis/Nosql概述.md)
-  - [Redis基本使用](backend/Redis/Redis基本使用.md)
-  - [Redis配置详解](backend/Redis/Redis配置详解.md)
-  - [Redis持久化（TODO）](backend/Redis/Redis持久化（TODO）.md)
-  - [Redis事务](backend/Redis/Redis事务.md)
-  - [Redis发布订阅](backend/Redis/Redis发布订阅.md)
-  - [Redis主从复制](backend/Redis/Redis主从复制.md)
-  - [Redis缓存问题](backend/Redis/Redis缓存问题.md)
-- 扩展
-  - [Mysql处理高并发策略](backend/Redis/Mysql处理高并发.md)
-  - [Redis的SDS与Cpp的String类](backend/Redis/Redis的SDS与Cpp的String类.md)
-  - [Redis的单线程和多线程](backend/Redis/Redis的单线程和多线程.md)
-  - [Redis开启远程连接](backend/Redis/Redis开启远程连接.md)
-
+- Redis
+	 - [Mysql处理高并发.md](backend/Redis/Mysql处理高并发.md)
+	 - [Nosql概述.md](backend/Redis/Nosql概述.md)
+	 - [Redis主从复制.md](backend/Redis/Redis主从复制.md)
+	 - [Redis事务.md](backend/Redis/Redis事务.md)
+	 - [Redis发布订阅.md](backend/Redis/Redis发布订阅.md)
+	 - [Redis基本使用.md](backend/Redis/Redis基本使用.md)
+	 - [Redis开启远程连接.md](backend/Redis/Redis开启远程连接.md)
+	 - [Redis持久化（TODO）.md](backend/Redis/Redis持久化（TODO）.md)
+	 - [Redis的SDS与Cpp的String类.md](backend/Redis/Redis的SDS与Cpp的String类.md)
+	 - [Redis的单线程和多线程.md](backend/Redis/Redis的单线程和多线程.md)
+	 - [Redis缓存问题.md](backend/Redis/Redis缓存问题.md)
+	 - [Redis配置详解.md](backend/Redis/Redis配置详解.md)
+	 - [跳表.md](backend/Redis/跳表.md)

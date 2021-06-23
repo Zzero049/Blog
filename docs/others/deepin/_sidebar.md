@@ -1,8 +1,6 @@
 ---
-- [返回上一级](_sidebar.md)
+- [返回上一级](_sidebar.md) 
 ---
 - deepin
-  - [从安装deepin到配置java开发环境](others/deepin/001.md)
-  - [deepin的使用](others/deepin/deepin的使用.md)
-
-
+	 - [001.md](others/deepin/001.md)
+	 - [deepin的使用.md](others/deepin/deepin的使用.md)

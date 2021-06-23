@@ -1,0 +1,5 @@
+---
+- [返回上一级](_sidebar.md) 
+---
+- linux命令
+	 - [快速查看项目情况.md](backend/后端疑难知识/linux/linux命令/快速查看项目情况.md)

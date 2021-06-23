@@ -1,0 +1,8 @@
+---
+- [返回上一级](_sidebar.md) 
+---
+- java疑难知识
+	 - [ArrayList的底层机制.md](backend/java/java疑难知识/ArrayList的底层机制.md)
+	 - [HashMap底层原理.md](backend/java/java疑难知识/HashMap底层原理.md)
+	 - [static方法可以被重写吗.md](backend/java/java疑难知识/static方法可以被重写吗.md)
+	 - [面试题：聊一聊HashMap.md](backend/java/java疑难知识/面试题：聊一聊HashMap.md)

@@ -1,5 +1,7 @@
 ## Mybatis基本操作
 
+![img](https://gitee.com/zero049/MyNoteImages/raw/master/1001990-20180420091927414-873899959.png)
+
 ### 数据库CRUD
 ```xml
 <?xml version="1.0" encoding="UTF-8" ?>

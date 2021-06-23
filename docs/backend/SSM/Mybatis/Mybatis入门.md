@@ -1,10 +1,10 @@
-### 框架
+## 框架
  它是我们软件开发中的一套解决方案，不同的框架解决的是不同的问题。
 
 使用框架的好处：
 &emsp;&emsp;框架封装了很多的细节，使开发者可以使用极简的方式实现功能。大大提高开发效率。
 
-### 三层架构
+## 三层架构
 表现层：
 &emsp;&emsp;是用于展示数据的
 业务层：
@@ -43,7 +43,7 @@ public class JdbctTest {
             //加载数据驱动
             Class.forName("com.mysql.jdbc.Driver");
             //获取连接
-            conn = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/eesy","root","qaz12345");
+            conn = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/eesy","root","12345");
             String sql = "select * from account where money>?";
             //预处理
             preparedStatement = (PreparedStatement) conn.prepareStatement(sql);
@@ -77,7 +77,90 @@ public class JdbctTest {
 }
 ```
 
+### 使用JDBCTemplate与数据库交互
+
+```java
+public class RouteImgDaoImpl implements RouteImgDao {
+    JdbcTemplate template = new JdbcTemplate(JDBCUtils.getDataSource());
+
+    @Override
+    public List<RouteImg> findByRid(int rid) {
+        String sql = "select * from tab_route_img where rid = ?";
+        return template.query(sql, new BeanPropertyRowMapper<RouteImg>(RouteImg.class), rid);
+    }
+}
+```
+
+```java
+public class JDBCUtils {
+    private static DataSource ds;
+
+    static {
+        InputStream in = JDBCUtils.class.getClassLoader().getResourceAsStream("druid.properties");
+        Properties pros = new Properties();
+
+        try {
+            pros.load(in);
+            ds = DruidDataSourceFactory.createDataSource(pros);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static DataSource getDataSource(){
+        return ds;
+    }
+
+    public static Connection getConnection() throws SQLException {
+        return ds.getConnection();
+    }
+
+    // 5.定义关闭资源的方法
+    public static void close(Connection conn, Statement stmt, ResultSet rs) {
+        if (rs != null) {
+            try {
+                rs.close();
+            } catch (SQLException e) {}
+        }
+
+        if (stmt != null) {
+            try {
+                stmt.close();
+            } catch (SQLException e) {}
+        }
+
+        if (conn != null) {
+            try {
+                conn.close();
+            } catch (SQLException e) {}
+        }
+    }
+
+    // 6.重载关闭方法
+    public static void close(Connection conn, Statement stmt) {
+        close(conn, stmt, null);
+    }
+}
+
+```
+
+```
+driverClassName=com.mysql.jdbc.Driver
+url=jdbc:mysql:///travel
+username=root
+password=12345
+initialSize=5
+maxActive=10
+maxWait=3000
+```
+
+
+
 ## Mybatis框架
+
 &emsp;mybatis是一个优秀的基于java的持久层框架，它内部封装了jdbc，使开发者**只需要关注sql语句本身，而不需要花费精力去处理加载驱动、创建连接、创建 statement等繁杂的过程**。
 &emsp;mybatis通过xml或注解的方式将要执行的各种statement配置起来，并通过java对象和statement中sql的动态参数进行映射生成最终执行的sql语句，最后由mybatis框架执行sql并将结果映射为java对象并返回。
 &emsp;采用 **ORM思想（Object Relational Mapping对象关系映射）** 解决了实体和数据库映射的问题，对jdbc进行了封装，屏蔽了jdbc api底层访问细节，使我们不用与jdbc api打交道，就可以完成对数据库的持久化操作 **（就是把数据库表和实体类及实体类的属性对应起来）**。

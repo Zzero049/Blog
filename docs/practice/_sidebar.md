@@ -1,0 +1,8 @@
+---
+- [返回上一级](_sidebar.md) 
+---
+- practice
+	 - [sql练习](practice/sql练习/_sidebar.md)
+	 - [必会算法](practice/必会算法/_sidebar.md)
+	 - [sql练习](practice/sql练习/_sidebar.md)
+	 - [必会算法](practice/必会算法/_sidebar.md)

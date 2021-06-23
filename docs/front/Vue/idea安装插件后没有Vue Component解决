@@ -1,0 +1,16 @@
+关于 idea 安装 Vue 插件后新建文件不显示 Vue Component 的问题及解决方法
+1.点击 file 打开设置 settings，展开 Editor 找到 file and code templates
+
+2.找到 Vue single file component 并选中它，然后点击copy
+
+![image-20200527110713543](https://gitee.com/zero049/MyNoteImages/raw/master/image-20200527110713543.png)
+
+3.复制后底部出现了一个新的文件
+
+4.把 Name 改成 Vue Component，然后把代码里的 “COMPONENT_ ”删掉，最后点 ok 就完事了
+
+![image-20200527110738226](https://gitee.com/zero049/MyNoteImages/raw/master/image-20200527110738226.png)
+
+然后我们再新建一个文件的时候就可以看到有 Vue Component 选项了！
+
+最后把这个copy of 删掉

@@ -1,0 +1,8 @@
+---
+- [返回上一级](_sidebar.md) 
+---
+- others
+	 - [deepin](others/deepin/_sidebar.md)
+	 - [Jetbrains](others/Jetbrains/_sidebar.md)
+	 - [markdown](others/markdown/_sidebar.md)
+	 - [VSCode](others/VSCode/_sidebar.md)

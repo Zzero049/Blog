@@ -162,43 +162,7 @@ c10K问题下，客户端遍历过程都得调用一次read，即便没有数据
 
 Selector是基于**多路复用器**的模型，多路复用底层在linux操作系统是调用select、poll、epoll
 
-New I/O：channel、ByteBuffer、selector 
-
-#### 同步
-
-使用多路复用器可以监听I/O状态，但是读写操作依旧是用户自己触发，因此是同步的
-
-**1、select**
-
-这种多路复用下，只需要O(1)次调用select去监听accept事件和 I/O状态，知道了有I/O事件发生了，却并不知道是哪那些个文件描述符，我们只能无差别轮询所有文件描述符fd，找出能读出数据，或者写入数据的文件描述符fd，对他们进行操作。所以select具有O(n)的无差别轮询复杂度，同时处理的文件描述符fd越多，无差别轮询时间就越长
-
-![image-20200514122421744](https://gitee.com/zero049/MyNoteImages/raw/master/image-20200514122421744.png)
-
-缺点：
-
-（1）每次调用select，都需要把fd集合从用户态拷贝到内核态，这个开销在fd很多时会很大
-
-（2）同时每次调用select都需要在内核遍历传递进来的所有fd，这个开销在fd很多时也很大
-
-（3）select支持的文件描述符数量太小了，32位机默认是1024个，64位机默认是2048。
-
-**2、poll**
-
- 调用过程和select类似，采用**链表**pollfd结构的方式替换原有fd_set数据结构,而使其**没有连接数的限制**，缺点为select前两条
-
-**3、epoll**
-
-epoll提供了三个函数解决poll和select的三个缺点，epoll_create,epoll_ctl和epoll_wait，epoll_create是创建一个epoll句柄；epoll_ctl是注册要监听的事件类型；epoll_wait则是等待事件的产生。
-
-![image-20200514122738709](https://gitee.com/zero049/MyNoteImages/raw/master/image-20200514122738709.png)
-
-对于第一个缺点，epoll的解决方案在epoll_ctl函数中。每次注册新的事件到epoll句柄中时（在epoll_ctl中指定EPOLL_CTL_ADD），会把所有的fd拷贝进内核，而不是在epoll_wait的时候重复拷贝。epoll保证了每个fd在整个过程中只会拷贝一次。
-
-　　对于第二个缺点，epoll的解决方案不像select或poll一样每次都把current轮流加入fd对应的设备等待队列中，而只在epoll_ctl时把current挂一遍（这一遍必不可少）并为每个fd指定一个回调函数，当设备就绪，唤醒等待队列上的等待者时，就会调用这个回调函数，而这个回调函数会把就绪的fd加入一个就绪链表）。epoll_wait的工作实际上就是在这个就绪链表中查看有没有就绪的fd（利用schedule_timeout()实现睡一会，判断一会的效果，和select实现中的第7步是类似的）。
-
-　　对于第三个缺点，epoll没有这个限制，它所支持的FD上限是最大可以打开文件的数目，这个数字一般远大于2048,举个例子,在1GB内存的机器上大约是10万左右，具体数目可以cat /proc/sys/fs/file-max察看,一般来说这个数目和系统内存关系很大。
-
-
+**New I/O**：**channel、ByteBuffer、selector** 
 
 NIO单线程模型
 

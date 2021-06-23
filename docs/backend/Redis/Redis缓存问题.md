@@ -187,7 +187,7 @@ public class BloomFilterDemo2 {
 
 但是这样有个弊端就是缓存太多空值占用了更多的空间，可以通过给缓存层空值设立一个较短的过期时间来解决，例如60s；但是缓存放空值也是没什么意义的事情。
 
-
+**布隆过滤器适合于大量的key不存在防止别人恶意攻击的，而缓存空对象适合那种大部分key存在的情况，偶尔拿空缓存**
 
 ## 缓存击穿（redis缓存过期导致没有，数据库有）
 
@@ -366,7 +366,7 @@ public class IndexController2 {
 
 图示：
 
-![img](H:\Desktop\新建文件夹\Blog\docs\backend\Redis\pictures\1090617-20190618183025891-1248337684.jpg)
+![img](https://gitee.com/zero049/MyNoteImages/raw/master/1090617-20190618183025891-1248337684.jpg)
 
 - **1、加锁机制**
 
@@ -392,7 +392,7 @@ Redisson可以实现可重入加锁机制的原因，我觉得跟两点有关：
 - **Hash数据类型的key值包含了当前线程信息**。
 
 下面是redis存储的数据
-![img](H:\Desktop\新建文件夹\Blog\docs\backend\Redis\pictures\1090617-20190618183037704-975536201.png)
+![img](https://gitee.com/zero049/MyNoteImages/raw/master/1090617-20190618183037704-975536201.png)
 
 这里表面数据类型是Hash类型,Hash类型是`<field,<key,value>>` 类型,这里field是指 “redission”（自定义的key名）
 
@@ -404,7 +404,7 @@ Redisson可以实现可重入加锁机制的原因，我觉得跟两点有关：
 
 **举图说明**
 
-![img](H:\Desktop\新建文件夹\Blog\docs\backend\Redis\pictures\1090617-20190618183046827-1994396879.png)
+![img](https://gitee.com/zero049/MyNoteImages/raw/master/1090617-20190618183046827-1994396879.png)
 
 上面这图的意思就是可重入锁的机制，它最大的优点就是相同线程不需要在等待锁，而是可以直接进行相应操作。
 
@@ -497,8 +497,6 @@ Zookeeper是分布式协调工具，主要用于分布式解决方案
 
 
 ### 解决方案
-
-
 
 #### 1、redis高可用
 
