@@ -24,7 +24,7 @@ idea安装插件`jclasslib Bytecode viewer`，能方便查看字节码
 
 ### 加载阶段（Loading）
 
-1、通过一个类的全限定名获取定义此类的==二进制字节流==
+1、通过一个类的全限定名获取定义此类的<font color="#DC143C">**二进制字节流**</font>
 
 2、将这个字节流所代表的静态**存储结构**转化为方法区的运行时数据结构
 
@@ -54,14 +54,14 @@ idea安装插件`jclasslib Bytecode viewer`，能方便查看字节码
 验证阶段大致需要下面四个阶段来验证，文件格式验证，元数据验证，字节码验证，符号引用验证。
 
 1. **文件格式验证：**
-   验证字节流是否符合==Class 文件格式==的规范,并且能被当前版本的虚拟机处理.
+   验证字节流是否符合<font color="#DC143C">**Class 文件格式**</font>的规范,并且能被当前版本的虚拟机处理.
 
    比如,是否以**魔数 0xCAFEBABE 开头**(字节码头四个字节,用来表示一个可以接受的字节码文件).
 
    主要目的是保证输入的字节流能正确的解析并存储于方法区之内,格式上符合描述一个 java 类型信息的要求.  
 
 2. **元数据验证：**
-   对字节码描述的信息进行语义分析，以保证其==描述的信息==符合 Java 语言规范的要求。
+   对字节码描述的信息进行语义分析，以保证其<font color="#DC143C">**描述的信息**</font>符合 Java 语言规范的要求。
 
    比如，是否有父类，是否继承了不允许被继承的类等等。（比如确保是该类是Object子类）
 
@@ -91,13 +91,13 @@ idea安装插件`jclasslib Bytecode viewer`，能方便查看字节码
 
 进行赋值声明的变量，在初始化阶段才被正确赋值。这里不包含用final修饰的 static，因为final在编译的时候就会分配了，调用时不会触发类的加载；
 
-**这里不会为==实例变量（非静态）==分配初始化**，类变量会分配在方法区中，而实例变量是会随着对象实例化一起分配到Java堆中
+这里不会为<font color="#DC143C">**实例变量（非静态）**</font>分配初始化，类变量会分配在方法区中，而实例变量是会随着对象实例化一起分配到Java堆中
 
 
 
 #### 解析（Resolution）
 
-**将==常量池==内的符号引用转换为直接引用**的过程。
+**将<font color="#DC143C">常量池</font>内的符号引用转换为直接引用**的过程。
 
 事实上，**解析操作往往会伴随着JVM在执行完初始化之后**再执行。
 
@@ -249,7 +249,7 @@ public class ClassLoaderTest {
 ### 启动类加载器（Bootstrap ClassLoader）
 
 - 这个类加载使用**C/C++语言**实现的，嵌套在JVM内部。
-- 它用来加载**Java的核心类库**（==JAVA_HOME/jre/lib/rt.jar==、resources.jar或sun.boot.class path路径下的内容），用于提供JVM自身需要的类(也可以配置参数-Xbootclasspath 参数指定的路径中  )
+- 它用来加载**Java的核心类库**（<font color="#DC143C">JAVA_HOME/jre/lib/rt.jar</font>、resources.jar或sun.boot.class path路径下的内容），用于提供JVM自身需要的类(也可以配置参数-Xbootclasspath 参数指定的路径中  )
 - 并**不继承**自java.lang.**ClassLoader**，没有父加载器。
 - 加载扩展类和应用程序类加载器，并指定为他们的父类加载器。
 - 出于安全考虑，Bootstrap启动类加载器**只加载包名为java、javax、sun等开头的类**
@@ -261,7 +261,7 @@ public class ClassLoaderTest {
 - **Java语言**编写，由sun.misc.Launcher$ ExtClassLoader实现。
 - 派生于**Classloader类**
 - **父类加载器为启动类加载器**
-- 从java.ext.dirs系统属性所指定的目录中加载类库，或从JDK的安装目录的 ==jre/lib/ext== 子目录（扩展目录）下加载类库。**如果用户创建的 JAR 放在此目录下，也会自动由扩展类加载器加载**
+- 从java.ext.dirs系统属性所指定的目录中加载类库，或从JDK的安装目录的 <font color="#DC143C">jre/lib/ext</font> 子目录（扩展目录）下加载类库。**如果用户创建的 JAR 放在此目录下，也会自动由扩展类加载器加载**
 
 
 
@@ -353,7 +353,7 @@ ClassLoader类，它是一个抽象类；其后所有的类加载器都继承自
 
 ## 双亲委托机制
 
-Java虚拟机对 class文件采用的是==**按需加载**==的方式，也就是说当需要使用该类时才会将它的class文件加载到内存生成class对象。而且加载某个类的class文件时，只需要加载进内存一次就足够了。为了**避免重复加载**，当父 ClassLoader 已经加载了该类的时候，就没有必要子ClassLoader 再加载一次。这种加载器之间的层次关系，就叫做**双亲委派模型(Parents Delegation Model)**  
+Java虚拟机对 class文件采用的是<font color="#DC143C">**按需加载**</font>的方式，也就是说当需要使用该类时才会将它的class文件加载到内存生成class对象。而且加载某个类的class文件时，只需要加载进内存一次就足够了。为了**避免重复加载**，当父 ClassLoader 已经加载了该类的时候，就没有必要子ClassLoader 再加载一次。这种加载器之间的层次关系，就叫做**双亲委派模型(Parents Delegation Model)**  
 
 ### 工作原理
 
