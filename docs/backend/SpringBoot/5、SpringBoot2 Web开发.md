@@ -665,14 +665,14 @@ getHandler方法
 
 
 
-## 6. 普通参数和基本注解
+## 6. 参数和基本注解
 
 @PathVariable、@RequestHeader、@ModelAttribute、@RequestParam、@MatrixVariable、@CookieValue、@RequestBody
 
 如请求路径
 
 ```
-/car/3/owner/lisi?age=18&in=basketball&in=game
+c/car/3/owner/lisi?age=18&in=basketball&in=game
 ```
 
 @PathVariable：获取路径或其中的某个值（/car/3/owner/lisi）
@@ -751,7 +751,11 @@ public class AttributeController {
 
 ```
 
-使用矩阵变量@MatrixVariable，这个功能是被SpringBoot默认禁用的，手动开启：原理。对于路径的处理。UrlPathHelper进行解析。removeSemicolonContent（移除分号内容）支持矩阵变量的。可以通过`/cars/sell;low=34;brand=byd;brand=audi;brand=yd`访问，通过@MatrixVariable取到，**矩阵变量必须有url路径变量（如{path}）才能被解析**，前面的路径只能带一个参数，最后一个路径可以带多个参数
+@MatrixVariable：矩阵变量
+
+这个功能是被SpringBoot默认禁用的，手动开启：原理。对于路径的处理。UrlPathHelper进行解析。
+
+removeSemicolonContent（移除分号内容）支持矩阵变量的。可以通过`/cars/sell;low=34;brand=byd;brand=audi;brand=yd`访问，通过@MatrixVariable取到，**矩阵变量必须有url路径变量（如{path}）才能被解析**，前面的路径只能带一个参数，最后一个路径可以带多个参数
 
 先修改取消分号设置
 
@@ -764,6 +768,7 @@ public class WebCoifg {
             @Override
             public void configurePathMatch(PathMatchConfigurer configurer) {
                 UrlPathHelper urlPathHelper = new UrlPathHelper();
+                // 设置不移除分号内容
                 urlPathHelper.setRemoveSemicolonContent(false);
                 configurer.setUrlPathHelper(urlPathHelper);
             }
@@ -779,7 +784,8 @@ controller
 @RestController
 public class ParameterTestController {
 
-    // /cars/sell;low=34;brand=byd;brand=audi;brand=yd
+    	
+   //cars/sell;low=34;brand=byd;brand=audi;brand=yd
     @GetMapping("/cars/{path}")
     public Map carsSell(@MatrixVariable("low") Integer low,
                         @MatrixVariable("brand") List<String> brands){
